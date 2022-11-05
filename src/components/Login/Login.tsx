@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import LoginStyled from "./LoginStyled";
 import { Formik, Form, ErrorMessage, Field } from "formik";
-import { ErrorsHandler } from "../../interfaces/interfaces";
+import { validateLoginSchema } from "../../schemas/validateLoginSchema";
 
 interface FormValues {
   username: string;
@@ -16,37 +16,23 @@ const Login = (): JSX.Element => {
     <LoginStyled>
       <Formik
         initialValues={initialValues}
-        validate={(values) => {
-          const errors: ErrorsHandler = {};
-          if (!values.username) {
-            errors.username = "Required username";
-          }
-
-          if (!values.password) {
-            errors.password = "Required password";
-          }
-
-          return errors;
-        }}
+        validationSchema={validateLoginSchema}
         onSubmit={(values, { resetForm }) => {
-          setTimeout(() => {
-            console.log(values);
-            resetForm();
-          }, 2000);
+          resetForm();
         }}
       >
-        {({ errors, isSubmitting }) => (
+        {({ errors, isSubmitting, isValid }) => (
           <Form autoComplete="off" className="form">
             <div className="input-container">
               <label htmlFor="username" className="form-label">
                 Username
               </label>
               <Field
-                type="text"
-                id="username"
                 name="username"
+                id="username"
+                type="text"
                 className="form-input"
-                placeholder="John"
+                placeholder="John Doe"
               />
               <ErrorMessage
                 name="username"
@@ -55,10 +41,9 @@ const Login = (): JSX.Element => {
                 )}
               />
             </div>
-
             <div className="input-container">
-              <label htmlFor="pasword" className="form-label">
-                Password{" "}
+              <label htmlFor="password" className="form-label">
+                Password
               </label>
               <Field
                 name="password"
@@ -75,7 +60,7 @@ const Login = (): JSX.Element => {
               />
             </div>
 
-            <Button type="submit" text="Login" disabled={isSubmitting} />
+            <Button type="submit" text="Login" disabled={!isValid} />
 
             <span className="text-login">
               Haven't an account yet?{" "}
