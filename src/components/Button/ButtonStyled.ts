@@ -13,7 +13,7 @@ const ButtonStyled = styled.button`
   margin-top: 10px;
 
   :disabled {
-    background-color: #3070ad;
+    background-color: #808080;
     color: #191919;
     pointer-events: none;
   }
