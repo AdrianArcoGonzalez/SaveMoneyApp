@@ -2,3 +2,44 @@ export interface ErrorsHandler {
   username?: string;
   password?: string;
 }
+
+export interface User {
+  userName: string;
+  email: string;
+  password: string;
+}
+
+export type UserLogin = Omit<User, "email">;
+
+export interface UserRegister extends User {
+  passwordConfirm: string;
+  emailConfirm: string;
+}
+
+export interface UserLoged {
+  userName: string;
+  token: string;
+  isLogged?: boolean;
+}
+
+export interface MoneyData {
+  incomes: number;
+  currency: "€" | "$";
+  savingTarget: number;
+}
+
+export type Category = "Food" | "Home" | "Clothes" | "Movility" | "Technology";
+
+export interface Expense {
+  name: string;
+  category: Category;
+  quantity: number;
+  date: string;
+  icon: string;
+}
+
+export interface Income {
+  name: string;
+  quantity: number;
+  date: string;
+}
