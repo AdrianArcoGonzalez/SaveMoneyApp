@@ -21,8 +21,8 @@ const Login = (): JSX.Element => {
           resetForm();
         }}
       >
-        {({ errors, isSubmitting, isValid }) => (
-          <Form autoComplete="off" className="form">
+        {({ errors, isValid }) => (
+          <Form autoComplete="off" className="form" noValidate>
             <div className="input-container">
               <label htmlFor="username" className="form-label">
                 Username
