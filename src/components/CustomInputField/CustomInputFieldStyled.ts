@@ -8,6 +8,13 @@ const CustomInputFieldStyled = styled.div`
   align-items: center;
   gap: 10px;
 
+  .input-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+  }
   .errors {
     text-align: center;
     color: #ff3131;

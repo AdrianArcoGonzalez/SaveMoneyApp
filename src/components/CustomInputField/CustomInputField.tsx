@@ -3,14 +3,14 @@ import CustomInputFieldStyled from "./CustomInputFieldStyled";
 
 interface CustomFormikFieldProps {
   type: string;
-  classname: string;
+  class: string;
   placeholder: string;
   label: string;
   name: string;
 }
 
 const CustomInputField = ({
-  classname,
+  class: className,
   placeholder,
   type,
   label,
@@ -18,15 +18,23 @@ const CustomInputField = ({
 }: CustomFormikFieldProps): JSX.Element => {
   return (
     <CustomInputFieldStyled>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="input-label">
+        {label}
+      </label>
       <Field
         type={type}
-        classname={classname}
+        className={className}
         id={name}
         name={name}
         placeholder={placeholder}
       ></Field>
-      <ErrorMessage name={name}>{(msg) => <span>{msg}</span>}</ErrorMessage>
+      <ErrorMessage name={name}>
+        {(msg) => (
+          <span data-testid="errorMessage" className="errors">
+            {msg}
+          </span>
+        )}
+      </ErrorMessage>
     </CustomInputFieldStyled>
   );
 };
