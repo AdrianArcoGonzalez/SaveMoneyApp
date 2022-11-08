@@ -11,7 +11,7 @@ const LoginPage = (): JSX.Element => {
         </h2>
       </div>
       <h3 className="third-title">Welcome!</h3>
-      <Login />
+      <Login username="" password="" />
     </LoginPageStyled>
   );
 };
