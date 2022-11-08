@@ -9,7 +9,7 @@ const LoginFormikForm = (): JSX.Element => {
 
   return (
     <LoginFormikFormStyled>
-      <Form noValidate autoComplete="off">
+      <Form noValidate autoComplete="off" className="form-container">
         <CustomInputField
           class="form-input"
           label="Username"
