@@ -14,30 +14,11 @@ const LoginStyled = styled.div`
     justify-content: center;
     align-items: center;
 
-    &-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      padding: 5px;
-    }
-
     &-input {
       font-family: inherit;
       text-align: center;
       padding: 5px;
     }
-  }
-
-  .link-register {
-    text-decoration: none;
-    color: #3070ad;
-    font-weight: bolder;
-  }
-
-  .text-login {
-    font-weight: bolder;
-    padding: 5px;
   }
 
   .input-container {
