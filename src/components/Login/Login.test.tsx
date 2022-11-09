@@ -13,7 +13,7 @@ describe("Given a Login components", () => {
 
       render(
         <BrowserRouter>
-          <Login username="" password="" />
+          <Login />
         </BrowserRouter>
       );
 

@@ -2,17 +2,14 @@ import LoginStyled from "./LoginStyled";
 import { Formik } from "formik";
 import { validateLoginSchema } from "../../schemas/validateLoginSchema";
 import LoginFormikForm from "../LoginFormikForm/LoginFormikForm";
+import { UserLogin } from "../../interfaces/interfaces";
 
-interface FormValuesProps {
-  username: string;
-  password: string;
-}
-
-const Login = ({ username, password }: FormValuesProps): JSX.Element => {
+const Login = (): JSX.Element => {
+  const initialValues: UserLogin = { userName: "", password: "" };
   return (
     <LoginStyled>
       <Formik
-        initialValues={{ username, password }}
+        initialValues={initialValues}
         validationSchema={validateLoginSchema}
         onSubmit={(values, { resetForm }) => {
           console.log(values);
