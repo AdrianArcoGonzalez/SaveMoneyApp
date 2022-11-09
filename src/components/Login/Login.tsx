@@ -12,7 +12,6 @@ const Login = (): JSX.Element => {
         initialValues={initialValues}
         validationSchema={validateLoginSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
           resetForm();
         }}
       >

@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import renderWithFormik from "../../Utils/test-utils";
 import LoginFormikForm from "./LoginFormikForm";
 
-describe("Given a LoginFormikForm componen", () => {
+describe("Given a LoginFormikForm component", () => {
   describe("When it's instantiated", () => {
     test("Then it should show 2 inputs and the login button", () => {
       const labelUser = "Username";
