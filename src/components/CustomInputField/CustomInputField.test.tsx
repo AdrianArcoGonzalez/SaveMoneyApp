@@ -45,7 +45,7 @@ describe("Given a CustomInputField", () => {
       fireEvent.blur(input);
 
       const error = await screen.findByTestId("errorMessage");
-      expect(error).toHaveTextContent("Name is required");
+      expect(error).toHaveTextContent("The name can't be empty");
     });
 
     test("Then it should show the name min length error if it passes with no content", async () => {
@@ -61,11 +61,13 @@ describe("Given a CustomInputField", () => {
       );
 
       const input = screen.getByLabelText("Username");
-      await userEvent.type(input, "asd");
+      await userEvent.type(input, "a");
       fireEvent.blur(input);
       const error = await screen.findByTestId("errorMessage");
 
-      expect(error).toHaveTextContent("Min length is 5 characters");
+      expect(error).toHaveTextContent(
+        "Username must have at least 1 character"
+      );
     });
 
     test("Then it should show the name max length error if it passes with no content", async () => {
@@ -81,11 +83,14 @@ describe("Given a CustomInputField", () => {
       );
 
       const input = screen.getByLabelText("Username");
-      await userEvent.type(input, "Testtestestestestest");
+      await userEvent.type(
+        input,
+        "TesttestestestestesTesttestestestestestTesttestestestestestt"
+      );
       fireEvent.blur(input);
       const error = await screen.findByTestId("errorMessage");
 
-      expect(error).toHaveTextContent("Max length is 12 characters");
+      expect(error).toHaveTextContent("Max length is 50 characters");
     });
   });
 });
