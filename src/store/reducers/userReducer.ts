@@ -7,18 +7,15 @@ const userReducer = (
 ) => {
   let user: UserLoged = { userName: "", token: "", isLogged: false };
 
-  switch (action.type) {
-    case "login":
-      user = {
-        ...user,
-        userName: (action as LoginAction).payload.userName,
-        token: (action as LoginAction).payload.token,
-        isLogged: (action as LoginAction).payload.isLogged,
-      };
-      break;
-
-    default:
-      user = { ...previousUser };
+  if (action.type === "login") {
+    user = {
+      ...user,
+      userName: (action as LoginAction).payload.userName,
+      token: (action as LoginAction).payload.token,
+      isLogged: (action as LoginAction).payload.isLogged,
+    };
+  } else {
+    user = { ...previousUser };
   }
 
   return user;
