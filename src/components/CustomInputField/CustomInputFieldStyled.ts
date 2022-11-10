@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoginStyled = styled.div`
+const CustomInputFieldStyled = styled.div`
   font-family: "Roboto";
   display: flex;
   flex-direction: column;
@@ -8,23 +8,12 @@ const LoginStyled = styled.div`
   align-items: center;
   gap: 10px;
 
-  .form {
+  .input-label {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-    &-input {
-      font-family: inherit;
-      text-align: center;
-      padding: 5px;
-    }
-  }
-
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+    gap: 5px;
+    padding: 5px;
   }
   .errors {
     text-align: center;
@@ -34,4 +23,4 @@ const LoginStyled = styled.div`
   }
 `;
 
-export default LoginStyled;
+export default CustomInputFieldStyled;
