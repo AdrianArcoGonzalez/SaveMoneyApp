@@ -15,7 +15,7 @@ export const RegisterFormikForm = (): JSX.Element => {
           class="form-input"
           label="Username"
           name="username"
-          placeholder="John"
+          placeholder="username"
           type="text"
         />
 
@@ -39,7 +39,7 @@ export const RegisterFormikForm = (): JSX.Element => {
           class="form-input"
           label="Email"
           name="email"
-          placeholder="John@mail.com"
+          placeholder="email"
           type="text"
         />
 
@@ -47,7 +47,7 @@ export const RegisterFormikForm = (): JSX.Element => {
           class="form-input"
           label="Repeat email"
           name="confirmEmail"
-          placeholder="John@mail.com"
+          placeholder="email"
           type="text"
         />
 
