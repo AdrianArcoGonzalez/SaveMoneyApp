@@ -32,7 +32,8 @@ export const Register = (): JSX.Element => {
         }}
         validationSchema={validateRegisterSchema}
         onSubmit={(values, { resetForm }) => {
-          resetForm();
+          resetForm({ values: initialValues });
+          console.log(values);
         }}
       >
         <RegisterFormikForm />
