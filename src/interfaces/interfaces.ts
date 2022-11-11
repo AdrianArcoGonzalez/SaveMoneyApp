@@ -7,7 +7,7 @@ export interface ErrorsHandler {
 }
 
 export interface User {
-  userName: string;
+  username: string;
   email: string;
   password: string;
 }
@@ -15,8 +15,8 @@ export interface User {
 export type UserLogin = Omit<User, "email">;
 
 export interface UserRegister extends User {
-  passwordConfirm: string;
-  emailConfirm: string;
+  confirmPassword: string;
+  confirmEmail: string;
 }
 
 export interface UserLoged {

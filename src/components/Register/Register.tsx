@@ -1,11 +1,11 @@
 import { Formik } from "formik";
-import { ErrorsHandler } from "../../interfaces/interfaces";
+import { ErrorsHandler, UserRegister } from "../../interfaces/interfaces";
 import { validateRegisterSchema } from "../../schemas/validateRegisterSchema";
 import { RegisterFormikForm } from "../RegisterFormikForm/RegisterFormikForm";
 import RegisterStyled from "./RegisterStyled";
 
 export const Register = (): JSX.Element => {
-  const initialValues = {
+  const initialValues: UserRegister = {
     username: "",
     password: "",
     confirmPassword: "",
