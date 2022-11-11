@@ -3,7 +3,7 @@ import * as yup from "yup";
 export const validateRegisterSchema = yup.object().shape({
   email: yup
     .string()
-    .required("Email required")
+    .required("Email can't be empty")
     .email("Email not valid")
     .max(60, "max 60 characters"),
 
