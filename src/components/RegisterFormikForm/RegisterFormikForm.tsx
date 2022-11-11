@@ -10,6 +10,7 @@ export const RegisterFormikForm = (): JSX.Element => {
   return (
     <RegisterFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
+        <h1 className="form-title">Create your account</h1>
         <CustomInputField
           class="form-input"
           label="Username"

@@ -5,6 +5,11 @@ const RegisterFormikFormStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
   .form-container {
     display: flex;
     flex-direction: column;
