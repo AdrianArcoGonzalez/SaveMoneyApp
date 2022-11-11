@@ -1,6 +1,9 @@
 export interface ErrorsHandler {
   username?: string;
   password?: string;
+  email?: string;
+  confirmPassword?: string;
+  confirmEmail?: string;
 }
 
 export interface User {
