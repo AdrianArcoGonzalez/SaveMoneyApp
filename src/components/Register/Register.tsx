@@ -6,7 +6,7 @@ import RegisterStyled from "./RegisterStyled";
 
 export const Register = (): JSX.Element => {
   const initialValues: UserRegister = {
-    username: "",
+    userName: "",
     password: "",
     confirmPassword: "",
     email: "",
