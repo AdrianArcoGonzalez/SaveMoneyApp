@@ -1,6 +1,9 @@
 export interface ErrorsHandler {
   username?: string;
   password?: string;
+  email?: string;
+  confirmPassword?: string;
+  confirmEmail?: string;
 }
 
 export interface User {
@@ -12,8 +15,8 @@ export interface User {
 export type UserLogin = Omit<User, "email">;
 
 export interface UserRegister extends User {
-  passwordConfirm: string;
-  emailConfirm: string;
+  confirmPassword: string;
+  confirmEmail: string;
 }
 
 export interface UserLoged {
