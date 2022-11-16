@@ -17,19 +17,6 @@ export const Register = (): JSX.Element => {
     <RegisterStyled>
       <Formik
         initialValues={initialValues}
-        validate={(values) => {
-          const errors: ErrorsHandler = {};
-
-          if (values.confirmPassword !== values.password) {
-            errors.confirmPassword = "The passwords must be the same";
-          }
-
-          if (values.confirmEmail !== values.email) {
-            errors.confirmEmail = "The email must be the same";
-          }
-
-          return errors;
-        }}
         validationSchema={validateRegisterSchema}
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: initialValues });
