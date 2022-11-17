@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { ErrorsHandler, UserRegister } from "../../interfaces/interfaces";
+import { UserRegister } from "../../interfaces/interfaces";
 import { validateRegisterSchema } from "../../schemas/validateRegisterSchema";
 import { RegisterFormikForm } from "../RegisterFormikForm/RegisterFormikForm";
 import RegisterStyled from "./RegisterStyled";
