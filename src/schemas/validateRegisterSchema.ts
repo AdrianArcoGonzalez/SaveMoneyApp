@@ -5,7 +5,15 @@ export const validateRegisterSchema = yup.object().shape({
     .string()
     .required("Email can't be empty")
     .email("Email not valid")
-    .max(60, "max 60 characters"),
+    .max(60, "max 60 characters")
+    .oneOf([yup.ref("email"), null], "Email must be the same"),
+
+  confirmEmail: yup
+    .string()
+    .required("Email can't be empty")
+    .email("Email not valid")
+    .max(60, "max 60 characters")
+    .oneOf([yup.ref("email"), null], "Email must be the same"),
 
   username: yup
     .string()
@@ -17,4 +25,10 @@ export const validateRegisterSchema = yup.object().shape({
     .string()
     .required("The password can't be empty")
     .min(8, "Password must have at least 8 characters"),
+
+  confirmPassword: yup
+    .string()
+    .required("The password can't be empty")
+    .min(8, "Password must have at least 8 characters")
+    .oneOf([yup.ref("email"), null], "Email must be the same"),
 });
