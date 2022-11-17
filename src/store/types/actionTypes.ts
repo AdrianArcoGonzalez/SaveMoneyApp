@@ -1,1 +1,1 @@
-export type ActionType = "login";
+export type ActionType = "login" | "toggleTheme";

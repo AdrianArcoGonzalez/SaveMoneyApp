@@ -1,4 +1,5 @@
 import { UserLoged } from "../../interfaces/interfaces";
+import { Theme } from "../uiContext/uiContext";
 import { ActionType } from "./actionTypes";
 
 export interface Action {
@@ -15,4 +16,8 @@ export interface UnknownAction extends AnyAction {
 
 export interface LoginAction extends Action {
   payload: UserLoged;
+}
+
+export interface ThemeAction extends Action {
+  payload: Theme;
 }
