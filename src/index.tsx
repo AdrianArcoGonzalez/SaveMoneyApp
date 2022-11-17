@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import UserContextProvider from "./store/UserContext/UserContextProvider";
+import { UiContextProvider } from "./store/uiContext/UiContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <UserContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <UiContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UiContextProvider>
     </UserContextProvider>
   </React.StrictMode>
 );
