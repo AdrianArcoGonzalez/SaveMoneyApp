@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MainPage from "./pages/MainPage/MainPage";
 
 const App = (): JSX.Element => {
   return (
@@ -28,6 +29,7 @@ const App = (): JSX.Element => {
         <Route path="/home" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/main" element={<MainPage />} />
       </Routes>
     </>
   );
