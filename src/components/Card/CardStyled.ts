@@ -8,7 +8,7 @@ const CardStyled = styled.section`
   color: white;
   width: 310px;
   height: 180px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   .card-money-saved {
     display: flex;
