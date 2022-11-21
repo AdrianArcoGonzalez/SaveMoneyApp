@@ -10,7 +10,7 @@ describe("Given a Card component", () => {
         income: 3000,
         moneySaved: 2000,
       };
-      const titleCard = "Money Saved";
+      const titleCard = "Money saved";
 
       render(
         <Card

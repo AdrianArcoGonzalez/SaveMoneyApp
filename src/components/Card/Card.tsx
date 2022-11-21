@@ -36,7 +36,7 @@ const Card = ({
         </div>
       ) : (
         <div className="card-money-saved">
-          <h2 className="card-title">Money Saved</h2>
+          <h2 className="card-title">Money saved</h2>
           <span className="card-main-info">
             {currencyType} {moneySaved}
           </span>
