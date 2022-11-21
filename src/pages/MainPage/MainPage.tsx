@@ -1,15 +1,21 @@
 import Card from "../../components/Card/Card";
+import getLimitToWaste from "../../Utils/getLimitToWaste";
+import mockUser from "../../Utils/mockBack";
 
 const MainPage = (): JSX.Element => {
   return (
     <div className="card">
       <Card
-        income={2000.14}
-        moneySaved={8000.49}
-        spend={1000.34}
+        income={mockUser.incomes}
+        moneySaved={mockUser.moneySaved}
+        spend={mockUser.spends}
+        currencyType={mockUser.currency}
+      />
+      <Card
+        limit={getLimitToWaste(mockUser.incomes, mockUser.savingTarget)}
+        spend={mockUser.spends}
         currencyType={"$"}
       />
-      <Card limit={1000} spend={700} currencyType={"$"} />
     </div>
   );
 };

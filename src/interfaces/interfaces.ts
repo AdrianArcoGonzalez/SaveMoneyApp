@@ -25,6 +25,13 @@ export interface UserLoged {
   isLogged?: boolean;
 }
 
+export interface UserMoneyData extends UserLoged {
+  incomes: number;
+  spends: number;
+  moneySaved: number;
+  currency: "€" | "$";
+  savingTarget: number;
+}
 export interface MoneyData {
   incomes: number;
   currency: "€" | "$";
