@@ -27,7 +27,7 @@ const Card = ({
             {limit}
           </span>
           <div className="spend-grafic">
-            <span>progressBar</span>
+            <progress value={spend} max={limit} className="progress-bar" />
 
             <span className="spend-limit">
               {spend}/{limit}

@@ -12,9 +12,10 @@ const CardStyled = styled.section`
 
   .card-money-saved {
     display: flex;
+    width: 90%;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     border-radius: 20px;
     background-color: #191919;
   }
@@ -111,9 +112,27 @@ const CardStyled = styled.section`
     align-self: flex-end;
     font-size: 0.8rem;
     color: black;
-    opacity: 80%;
+    opacity: 50%;
     margin-right: 15px;
     padding: 10px;
+  }
+  .progress-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    border-radius: 10px;
+    height: 15px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+  }
+  progress[value]::-webkit-progress-value {
+    border-radius: 10px;
+    background-color: #00457d;
+    color: white;
   }
 `;
 
