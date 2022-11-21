@@ -27,7 +27,8 @@ const Card = ({
             {limit}
           </span>
           <div className="spend-grafic">
-            <span>grafico</span>
+            <span>progressBar</span>
+
             <span className="spend-limit">
               {spend}/{limit}
             </span>

@@ -99,20 +99,21 @@ const CardStyled = styled.section`
     background-color: #3070ad;
   }
 
-  .spend-limit {
-    font-size: 0.8rem;
-    color: black;
-    opacity: 80%;
-    text-align: right;
-    margin-right: 15px;
-    padding: 10px;
-  }
-
   .spend-grafic {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
+
+  .spend-limit {
+    align-self: flex-end;
+    font-size: 0.8rem;
+    color: black;
+    opacity: 80%;
+    margin-right: 15px;
+    padding: 10px;
   }
 `;
 
