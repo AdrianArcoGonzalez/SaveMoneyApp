@@ -8,7 +8,7 @@ describe("Given a component Incomes", () => {
     test("Then it should show 3 inputs where the user can type", () => {
       const userWrite = 5000;
 
-      renderWithFormik(<Incomes onSubmit={jest.fn()} />);
+      renderWithFormik(<Incomes />);
 
       const inputs = screen.getAllByRole("spinbutton");
 

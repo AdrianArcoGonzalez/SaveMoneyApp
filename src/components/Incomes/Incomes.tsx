@@ -10,15 +10,14 @@ const initialValues: IncomesValues = {
 };
 
 export const Incomes = (): JSX.Element => {
-  const { resetForm } = useFormikContext();
-
-  const handleSubmit = () => {
-    resetForm({ values: initialValues });
-  };
+  const handleSubmit = () => {};
 
   return (
     <Formik
-      onSubmit={handleSubmit}
+      onSubmit={(values, { resetForm }) => {
+        handleSubmit();
+        resetForm({ values: initialValues });
+      }}
       initialValues={initialValues}
       validationSchema={validateIncomesForm}
     >
