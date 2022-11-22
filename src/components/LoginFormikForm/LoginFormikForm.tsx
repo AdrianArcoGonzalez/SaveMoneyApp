@@ -13,7 +13,7 @@ const LoginFormikForm = (): JSX.Element => {
         <CustomInputField
           class="form-input"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />
