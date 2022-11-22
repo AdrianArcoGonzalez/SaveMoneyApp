@@ -59,7 +59,11 @@
       "src/**/*.tsx",
       "src/**/*.ts",
       "!src/index.tsx",
-      "!src/reportWebVitals.ts"
+      "!src/reportWebVitals.ts",
+      "!src/store/UserContext/UserContext.ts",
+      "!src/store/UserContext/UserContextProvider.ts",
+      "!src/store/UiContext/UiContext.ts",
+      "!src/store/UiContext/UiContextProvider.ts"
     ]
   }
 }
