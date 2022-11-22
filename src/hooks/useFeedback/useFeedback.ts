@@ -1,6 +1,6 @@
 import { toast, ToastOptions } from "react-toastify";
 import { useContext } from "react";
-import { UiContext } from "../../../store/uiContext/uiContext";
+import { UiContext } from "../../store/uiContext/uiContext";
 
 export const useFeeback = () => {
   const { theme } = useContext(UiContext);
