@@ -5,8 +5,7 @@ export const validateRegisterSchema = yup.object().shape({
     .string()
     .required("Email can't be empty")
     .email("Email not valid")
-    .max(60, "max 60 characters")
-    .oneOf([yup.ref("email"), null], "Email must be the same"),
+    .max(60, "max 60 characters"),
 
   confirmEmail: yup
     .string()
@@ -30,5 +29,5 @@ export const validateRegisterSchema = yup.object().shape({
     .string()
     .required("The password can't be empty")
     .min(8, "Password must have at least 8 characters")
-    .oneOf([yup.ref("email"), null], "Email must be the same"),
+    .oneOf([yup.ref("password"), null], "Password must be the same"),
 });
