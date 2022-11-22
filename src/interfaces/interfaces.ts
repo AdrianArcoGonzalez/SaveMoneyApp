@@ -46,3 +46,9 @@ export interface Income {
   quantity: number;
   date: string;
 }
+
+export interface IncomesValues {
+  incomes: number;
+  saving: number;
+  currency: "€" | "$";
+}
