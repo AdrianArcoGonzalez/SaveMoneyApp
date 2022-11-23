@@ -20,10 +20,6 @@ export const NavigationBarStyled = styled.div`
     gap: 2px;
   }
 
-  .navigation-bar__link--selected {
-    color: #3070ad;
-  }
-
   .link-icon {
     font-size: 24px;
   }
@@ -31,5 +27,9 @@ export const NavigationBarStyled = styled.div`
   .link-text {
     font-size: 10px;
     font-weight: bold;
+  }
+
+  .active {
+    color: #3070ad;
   }
 `;
