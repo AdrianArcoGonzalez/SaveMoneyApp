@@ -26,7 +26,7 @@ const useUser = () => {
   const loginUser = async (userLogin: UserLogin) => {
     try {
       const { data } = await axios.post(environments.login, userLogin);
-      const user = await decodeToken(data.user.token);
+      const user = decodeToken(data.user.token);
       const loginUser = { ...user, isLogged: true };
       successFeedback(`Welcome ${user.userName}`);
       dispatch(userLoginActionCreator(loginUser));
