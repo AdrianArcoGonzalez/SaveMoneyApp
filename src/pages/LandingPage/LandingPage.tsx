@@ -28,7 +28,7 @@ const LandingPage = (): JSX.Element => {
       <span className="text-login">
         Haven't an account yet?{" "}
         <NavLink to={"/register"} className="link-login">
-          Login
+          Register
         </NavLink>
       </span>
     </LandingPageStyled>

@@ -1,17 +1,19 @@
 import { Formik } from "formik";
+import useUser from "../../hooks/useUser/useUser";
 import { UserRegister } from "../../interfaces/interfaces";
 import { validateRegisterSchema } from "../../schemas/validateRegisterSchema";
 import { RegisterFormikForm } from "../RegisterFormikForm/RegisterFormikForm";
 import RegisterStyled from "./RegisterStyled";
 
-export const Register = (): JSX.Element => {
-  const initialValues: UserRegister = {
-    userName: "",
-    password: "",
-    confirmPassword: "",
-    email: "",
-    confirmEmail: "",
-  };
+const initialValues: UserRegister = {
+  userName: "",
+  password: "",
+  confirmPassword: "",
+  email: "",
+  confirmEmail: "",
+};
+const Register = (): JSX.Element => {
+  const { registerUser } = useUser();
 
   return (
     <RegisterStyled>
@@ -20,6 +22,7 @@ export const Register = (): JSX.Element => {
         validationSchema={validateRegisterSchema}
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: initialValues });
+          registerUser(values);
         }}
       >
         <RegisterFormikForm />
@@ -27,3 +30,5 @@ export const Register = (): JSX.Element => {
     </RegisterStyled>
   );
 };
+
+export default Register;

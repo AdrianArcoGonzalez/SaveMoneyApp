@@ -1,7 +1,7 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import renderWithFormik from "../../Utils/test-utils";
-import { Register } from "./Register";
+import Register from "./Register";
 
 describe("Given a Register components", () => {
   describe("When it's instantiated", () => {
