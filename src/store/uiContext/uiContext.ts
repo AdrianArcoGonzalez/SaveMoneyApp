@@ -5,10 +5,10 @@ export type Theme = "light" | "dark";
 
 export interface Ui {
   theme: Theme;
-  dispatch: Dispatch<Action>;
+  dispatchUi: Dispatch<Action>;
 }
 
 export const UiContext = createContext<Ui>({
   theme: "light",
-  dispatch: () => {},
+  dispatchUi: () => {},
 });

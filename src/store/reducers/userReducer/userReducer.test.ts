@@ -1,5 +1,5 @@
-import { UserLoged } from "../../interfaces/interfaces";
-import { userLoginActionCreator } from "../actions/userActions";
+import { UserLoged } from "../../../interfaces/interfaces";
+import { userLoginActionCreator } from "../../actions/userActions/userActions";
 import userReducer from "./userReducer";
 
 describe("Given a userReducers function", () => {

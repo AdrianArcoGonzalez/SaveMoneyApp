@@ -11,6 +11,7 @@ const decodeToken = (token: string) => {
     token: token,
     id: payloadToken.id,
     userName: payloadToken.userName,
+    isLogged: true,
   };
   return user;
 };
