@@ -38,14 +38,12 @@ export interface MoneyData {
   savingTarget: number;
 }
 
-export type Category = "Food" | "Home" | "Clothes" | "Movility" | "Technology";
-
 export interface Expense {
   name: string;
-  category: Category;
   quantity: number;
   date: string;
   icon: string;
+  category: string;
 }
 
 export interface Income {
@@ -58,4 +56,9 @@ export interface IncomesValues {
   incomes: number;
   saving: number;
   currency: "€" | "$";
+}
+
+export interface Category {
+  name: string;
+  icon: string;
 }
