@@ -4,24 +4,31 @@ export const getLimitToWaste = (
   incomes: Income[],
   savingTarget: number
 ): number => {
-  let incomesQuantity = 0;
+  let initialIncomes = 0;
+  const totalIncomes = incomes.reduce(
+    (accumulator, incomes) => accumulator + incomes.quantity,
+    initialIncomes
+  );
 
-  incomes.forEach((income) => (incomesQuantity += income.quantity));
-
-  return incomesQuantity - savingTarget;
+  return totalIncomes - savingTarget;
 };
 
 export const getTotalIncomes = (incomes: Income[]): number => {
-  let totalIncomes = 0;
-  incomes.forEach((income) => (totalIncomes += income.quantity));
+  let initialIncome = 0;
+  const totalIncomes = incomes.reduce(
+    (accumulator, incomes) => accumulator + incomes.quantity,
+    initialIncome
+  );
 
   return totalIncomes;
 };
 
 export const getTotalExpenses = (expenses: Expense[]): number => {
-  let totalExpenses = 0;
+  let initialExpense = 0;
 
-  expenses.forEach((expense) => (totalExpenses += expense.quantity));
-
+  const totalExpenses = expenses.reduce(
+    (accumulator, expenses) => accumulator + expenses.quantity,
+    initialExpense
+  );
   return totalExpenses;
 };
