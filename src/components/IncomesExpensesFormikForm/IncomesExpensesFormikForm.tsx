@@ -79,7 +79,11 @@ export const IncomesExpensesFormikForm = ({
             </>
           )}
         </div>
-        <Button text={`Add new ${type}`} type="submit" disabled={!isValid} />
+        <Button
+          text={`Add new ${type.toLowerCase()}`}
+          type="submit"
+          disabled={!isValid}
+        />
       </Form>
     </IncomesExpensesFormikFormStyled>
   );
