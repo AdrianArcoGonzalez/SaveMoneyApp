@@ -15,7 +15,7 @@ describe("Given a Card component", () => {
       render(
         <Card
           currencyType="$"
-          spend={data.spend}
+          expense={data.spend}
           income={data.income}
           moneySaved={data.moneySaved}
         />
