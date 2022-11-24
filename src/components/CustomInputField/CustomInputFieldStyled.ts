@@ -4,9 +4,15 @@ const CustomInputFieldStyled = styled.div`
   font-family: "Roboto";
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  width: 100%;
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+  }
 
   .input-label {
     display: flex;
