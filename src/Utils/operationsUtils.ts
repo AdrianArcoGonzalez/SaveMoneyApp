@@ -6,14 +6,14 @@ export const getLimitToWaste = (
 ): number => {
   let incomesQuantity = 0;
 
-  incomes.map((income) => (incomesQuantity += income.quantity));
+  incomes.forEach((income) => (incomesQuantity += income.quantity));
 
   return incomesQuantity - savingTarget;
 };
 
 export const getTotalIncomes = (incomes: Income[]): number => {
   let totalIncomes = 0;
-  incomes.map((income) => (totalIncomes += income.quantity));
+  incomes.forEach((income) => (totalIncomes += income.quantity));
 
   return totalIncomes;
 };
@@ -21,7 +21,7 @@ export const getTotalIncomes = (incomes: Income[]): number => {
 export const getTotalExpenses = (expenses: Expense[]): number => {
   let totalExpenses = 0;
 
-  expenses.map((expense) => (totalExpenses += expense.quantity));
+  expenses.forEach((expense) => (totalExpenses += expense.quantity));
 
   return totalExpenses;
 };
