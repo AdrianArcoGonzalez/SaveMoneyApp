@@ -1,6 +1,6 @@
-import { UserMoneyData } from "../interfaces/interfaces";
+import { Expense, UserMoneyData } from "../interfaces/interfaces";
 
-const mockUser: UserMoneyData = {
+export const mockUser: UserMoneyData = {
   userName: "test",
   token: "123123",
   isLogged: true,
@@ -11,4 +11,10 @@ const mockUser: UserMoneyData = {
   savingTarget: 1000,
 };
 
-export default mockUser;
+export const mockExpense: Expense = {
+  category: "",
+  date: "",
+  icon: "",
+  name: "",
+  quantity: 0,
+};

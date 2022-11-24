@@ -1,6 +1,6 @@
 import Card from "../../components/Card/Card";
 import getLimitToWaste from "../../Utils/getLimitToWaste";
-import mockUser from "../../Utils/mockBack";
+import { mockUser } from "../../Utils/mockBack";
 import MainPageStyled from "./MaingPageStyled";
 
 const MainPage = (): JSX.Element => {
