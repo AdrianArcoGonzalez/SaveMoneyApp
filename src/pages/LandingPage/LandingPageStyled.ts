@@ -11,6 +11,7 @@ const LandingPageStyled = styled.div`
 
   .image-central {
     object-fit: cover;
+    border-radius: 10px;
   }
 
   .secondary-title {
