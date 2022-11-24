@@ -53,3 +53,9 @@ export interface Income {
   quantity: number;
   date: string;
 }
+
+export interface PayloadToken {
+  id: string;
+  userName: string;
+  iat: number;
+}
