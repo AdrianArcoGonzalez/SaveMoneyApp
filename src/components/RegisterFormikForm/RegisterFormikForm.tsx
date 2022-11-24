@@ -10,9 +10,10 @@ export const RegisterFormikForm = (): JSX.Element => {
   return (
     <RegisterFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
-        <h1 className="form-title">Create your account</h1>
+        <h1 className="form-container__title">Create your account</h1>
+
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Username"
           name="username"
           placeholder="username"
@@ -20,7 +21,7 @@ export const RegisterFormikForm = (): JSX.Element => {
         />
 
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Password"
           name="password"
           placeholder="********"
@@ -28,7 +29,7 @@ export const RegisterFormikForm = (): JSX.Element => {
         />
 
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Repeat password"
           name="confirmPassword"
           placeholder="********"
@@ -36,7 +37,7 @@ export const RegisterFormikForm = (): JSX.Element => {
         />
 
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Email"
           name="email"
           placeholder="email"
@@ -44,7 +45,7 @@ export const RegisterFormikForm = (): JSX.Element => {
         />
 
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Repeat email"
           name="confirmEmail"
           placeholder="email"
@@ -53,9 +54,9 @@ export const RegisterFormikForm = (): JSX.Element => {
 
         <Button type="submit" text="Register" disabled={!isValid} />
 
-        <span className="text-login">
+        <span className="form-container__login-text">
           Have an account yet?{" "}
-          <NavLink to={"/login"} className="link-login">
+          <NavLink to={"/login"} className="form-container__login-link">
             Login
           </NavLink>
         </span>
