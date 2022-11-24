@@ -1,10 +1,9 @@
-import { Field, Form, Formik, useFormikContext } from "formik";
+import { Field, Form, useFormikContext } from "formik";
 import Button from "../Button/Button";
 import { IncomesExpensesFormikFormStyled } from "./IncomesExpensesFormikFormStyled";
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { categories } from "../../Utils/categories";
 import { Expense } from "../../interfaces/interfaces";
-import { useEffect } from "react";
 
 interface IncomesExpensesFormikFormProps {
   type: "Income" | "Expense";
