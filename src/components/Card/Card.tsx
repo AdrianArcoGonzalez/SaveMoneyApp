@@ -5,7 +5,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 interface CardProps {
   moneySaved?: number;
   income?: number;
-  spend: number;
+  expense: number;
   limit?: number | null;
   currencyType: "€" | "$";
 }
@@ -14,7 +14,7 @@ const Card = ({
   income,
   limit,
   moneySaved,
-  spend,
+  expense: spend,
   currencyType,
 }: CardProps): JSX.Element => {
   return (
