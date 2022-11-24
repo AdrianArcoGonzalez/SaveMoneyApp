@@ -14,7 +14,7 @@ export const IncomesFormikForm = () => {
   return (
     <IncomesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
-        <h1 className="form-container__title">{`Welcome ${user.userName}`}</h1>
+        <h3 className="form-container__title">{`Welcome ${user.userName}`}</h3>
         <span className="form-container__intro-text">
           Before starting we need to to ask some questions
         </span>
