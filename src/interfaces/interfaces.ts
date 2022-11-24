@@ -26,8 +26,8 @@ export interface UserLoged {
 }
 
 export interface UserMoneyData extends UserLoged {
-  incomes: number;
-  spends: number;
+  incomes: Income[];
+  expenses: Expense[];
   moneySaved: number;
   currency: "€" | "$";
   savingTarget: number;
