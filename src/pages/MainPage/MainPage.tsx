@@ -5,7 +5,7 @@ import {
   getTotalIncomes,
 } from "../../Utils/operationsUtils";
 import mockUser from "../../Utils/mockBack";
-import MainPageStyled from "./MaingPageStyled";
+import MainPageStyled from "./MainPageStyled";
 
 const MainPage = (): JSX.Element => {
   return (
