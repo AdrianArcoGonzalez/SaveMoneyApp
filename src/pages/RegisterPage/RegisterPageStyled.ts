@@ -5,27 +5,20 @@ const RegisterPageStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 
-  .secondary-title {
+  .secondary-title-container {
     display: flex;
     width: 60%;
     text-align: left;
     flex-direction: column;
-    padding: 10px;
 
-    &-container {
+    &__text {
       width: 100%;
     }
-    &--blue {
+    &__text--blue {
       color: #3070ad;
     }
-  }
-  .third-title {
-    width: 100%;
-    padding: 10px;
-    text-align: left;
-    font-size: 1.5rem;
   }
 `;
 

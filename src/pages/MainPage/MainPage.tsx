@@ -1,7 +1,12 @@
 import Card from "../../components/Card/Card";
-import getLimitToWaste from "../../Utils/getLimitToWaste";
-import mockUser from "../../Utils/mockBack";
-import MainPageStyled from "./MaingPageStyled";
+import {
+  getLimitToWaste,
+  getTotalExpenses,
+  getTotalIncomes,
+} from "../../Utils/operationsUtils";
+
+import { mockUser } from "../../Utils/mockBack";
+import MainPageStyled from "./MainPageStyled";
 
 const MainPage = (): JSX.Element => {
   return (
@@ -9,15 +14,15 @@ const MainPage = (): JSX.Element => {
       <h2 className="main-title">Dashboard</h2>
       <div className="card">
         <Card
-          income={mockUser.incomes}
+          income={getTotalIncomes(mockUser.incomes)}
           moneySaved={mockUser.moneySaved}
-          spend={mockUser.spends}
+          expense={getTotalExpenses(mockUser.expenses)}
           currencyType={mockUser.currency}
         />
         <Card
           limit={getLimitToWaste(mockUser.incomes, mockUser.savingTarget)}
-          spend={mockUser.spends}
-          currencyType={"$"}
+          expense={getTotalExpenses(mockUser.expenses)}
+          currencyType={mockUser.currency}
         />
       </div>
     </MainPageStyled>
