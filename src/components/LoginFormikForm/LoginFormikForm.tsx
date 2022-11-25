@@ -11,7 +11,7 @@ const LoginFormikForm = (): JSX.Element => {
     <LoginFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Username"
           name="username"
           placeholder="username"
@@ -19,7 +19,7 @@ const LoginFormikForm = (): JSX.Element => {
         />
 
         <CustomInputField
-          class="form-input"
+          class="form-container__input"
           label="Password"
           name="password"
           placeholder="********"
@@ -28,9 +28,9 @@ const LoginFormikForm = (): JSX.Element => {
 
         <Button type="submit" text="Login" disabled={!isValid} />
 
-        <span className="text-register">
+        <span className="form-container__login-text">
           Haven't an account yet?{" "}
-          <NavLink to={"/register"} className="link-register">
+          <NavLink to={"/register"} className="form-container__login-link">
             Register
           </NavLink>
         </span>

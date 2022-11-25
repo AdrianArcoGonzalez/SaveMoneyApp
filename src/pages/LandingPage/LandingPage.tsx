@@ -19,6 +19,7 @@ const LandingPage = (): JSX.Element => {
           <span className="secondary-title--blue"> money</span>
         </h2>
       </div>
+
       <Button
         type="button"
         onClick={() => navigate("/login")}
@@ -28,7 +29,7 @@ const LandingPage = (): JSX.Element => {
       <span className="text-login">
         Haven't an account yet?{" "}
         <NavLink to={"/register"} className="link-login">
-          Login
+          Register
         </NavLink>
       </span>
     </LandingPageStyled>
