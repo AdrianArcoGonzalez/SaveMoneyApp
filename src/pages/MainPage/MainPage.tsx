@@ -4,7 +4,8 @@ import {
   getTotalExpenses,
   getTotalIncomes,
 } from "../../Utils/operationsUtils";
-import mockUser from "../../Utils/mockBack";
+
+import { mockUser } from "../../Utils/mockBack";
 import MainPageStyled from "./MainPageStyled";
 
 const MainPage = (): JSX.Element => {

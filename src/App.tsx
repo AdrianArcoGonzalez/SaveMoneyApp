@@ -24,6 +24,7 @@ const App = (): JSX.Element => {
         theme="light"
         transition={Zoom}
       />
+
       <Layout
         children={[
           <Header />,
