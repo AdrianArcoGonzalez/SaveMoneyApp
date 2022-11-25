@@ -9,8 +9,6 @@ const MainPageStyled = styled.div`
   .main-title {
     font-size: 1rem;
     align-self: flex-start;
-    padding: 5px;
-    margin-left: 15px;
   }
 `;
 

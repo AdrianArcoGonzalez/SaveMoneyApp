@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const CustomInputFieldStyled = styled.div`
   font-family: "Roboto";
+  font-size: 0.875rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,7 +20,6 @@ const CustomInputFieldStyled = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    padding: 5px;
   }
   .errors {
     text-align: center;
