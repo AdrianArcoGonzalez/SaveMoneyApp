@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { UserLoged } from "../../interfaces/interfaces";
-import userReducer from "../reducers/userReducer";
+import userReducer from "../reducers/userReducer/userReducer";
 import UserContext from "./UserContext";
 
 interface UserContextProviderProps {

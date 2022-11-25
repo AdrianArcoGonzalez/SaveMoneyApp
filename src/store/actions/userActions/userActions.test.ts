@@ -1,5 +1,5 @@
-import { UserLoged } from "../../interfaces/interfaces";
-import { LoginAction } from "../types/actions";
+import { UserLoged } from "../../../interfaces/interfaces";
+import { LoginAction } from "../../types/actions";
 import { userLoginActionCreator } from "./userActions";
 
 describe("Given a userLoginActionCreator", () => {

@@ -9,11 +9,16 @@ const LoginFormikForm = (): JSX.Element => {
 
   return (
     <LoginFormikFormStyled>
-      <Form noValidate autoComplete="off" className="form-container">
+      <Form
+        noValidate
+        autoComplete="off"
+        className="form-container"
+        data-testid="loginForm"
+      >
         <CustomInputField
           class="form-container__input"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />

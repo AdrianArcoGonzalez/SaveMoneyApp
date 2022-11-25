@@ -1,5 +1,5 @@
-import { UserLoged } from "../../interfaces/interfaces";
-import { Action, LoginAction, UnknownAction } from "../types/actions";
+import { UserLoged } from "../../../interfaces/interfaces";
+import { Action, LoginAction, UnknownAction } from "../../types/actions";
 
 const userReducer = (
   previousUser: UserLoged,

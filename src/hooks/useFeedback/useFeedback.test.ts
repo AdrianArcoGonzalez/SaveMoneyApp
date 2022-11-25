@@ -1,12 +1,12 @@
 import { renderHook } from "@testing-library/react";
-import { useFeeback } from "./useFeedback";
+import { useFeedback } from "./useFeedback";
 
 describe("Given a function useFeedback", () => {
   describe("When invoked", () => {
     test("the it should return a function errorFeedback", () => {
       const {
         result: { current: errorFeedback },
-      } = renderHook(useFeeback);
+      } = renderHook(useFeedback);
 
       expect(errorFeedback).not.toBeNull();
     });
@@ -14,7 +14,7 @@ describe("Given a function useFeedback", () => {
     test("the it should return a function succesFeedback", () => {
       const {
         result: { current: succesFeedback },
-      } = renderHook(useFeeback);
+      } = renderHook(useFeedback);
 
       expect(succesFeedback).not.toBeNull();
     });
@@ -22,7 +22,7 @@ describe("Given a function useFeedback", () => {
     test("the it should return a function infoFeedback", () => {
       const {
         result: { current: infoFeedback },
-      } = renderHook(useFeeback);
+      } = renderHook(useFeedback);
 
       expect(infoFeedback).not.toBeNull();
     });

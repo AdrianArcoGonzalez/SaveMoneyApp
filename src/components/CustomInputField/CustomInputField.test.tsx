@@ -13,7 +13,7 @@ describe("Given a CustomInputField", () => {
         <CustomInputField
           class="test"
           label={labelText}
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />,
@@ -32,7 +32,7 @@ describe("Given a CustomInputField", () => {
         <CustomInputField
           class="test"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />,
@@ -53,7 +53,7 @@ describe("Given a CustomInputField", () => {
         <CustomInputField
           class="test"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />,
@@ -75,7 +75,7 @@ describe("Given a CustomInputField", () => {
         <CustomInputField
           class="test"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />,

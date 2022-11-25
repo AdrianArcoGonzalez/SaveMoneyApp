@@ -14,7 +14,7 @@ export const UiContextProvider = ({
   const [theme, dispatch] = useReducer(uiReducer, initialTheme);
 
   return (
-    <UiContext.Provider value={{ theme, dispatch }}>
+    <UiContext.Provider value={{ theme, dispatchUi: dispatch }}>
       {children}
     </UiContext.Provider>
   );
