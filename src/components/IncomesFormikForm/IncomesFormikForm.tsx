@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { IncomesFormikFormStyled } from "./IncomesFormikFormStyled";
-import mockUser from "../../Utils/mockBack";
+import { mockUser } from "../../Utils/mockBack";
 
 export const IncomesFormikForm = () => {
   let { isValid } = useFormikContext();
