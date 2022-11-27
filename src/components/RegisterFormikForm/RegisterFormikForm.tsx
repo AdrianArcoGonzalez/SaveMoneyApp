@@ -15,7 +15,7 @@ export const RegisterFormikForm = (): JSX.Element => {
         <CustomInputField
           class="form-container__input"
           label="Username"
-          name="username"
+          name="userName"
           placeholder="username"
           type="text"
         />

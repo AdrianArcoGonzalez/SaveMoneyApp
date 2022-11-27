@@ -14,7 +14,7 @@ export const validateRegisterSchema = yup.object().shape({
     .max(60, "max 60 characters")
     .oneOf([yup.ref("email"), null], "Email must be the same"),
 
-  username: yup
+  userName: yup
     .string()
     .required("The name can't be empty")
     .min(2, "Username must have at least 1 character")
