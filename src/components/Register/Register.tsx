@@ -18,9 +18,10 @@ const Register = (): JSX.Element => {
     <Formik
       initialValues={initialValues}
       validationSchema={validateRegisterSchema}
-      onSubmit={(values, { resetForm }) => {
-        resetForm({ values: initialValues });
-        registerUser(values);
+      onSubmit={async (values, { resetForm }) => {
+        if (await registerUser(values)) {
+          resetForm({ values: initialValues });
+        }
       }}
     >
       <RegisterFormikForm />
