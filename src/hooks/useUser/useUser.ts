@@ -17,10 +17,13 @@ const useUser = () => {
     let response;
     try {
       response = await axios.post(environments.register, user);
+      successFeedback(`${response.data.message}`);
     } catch (error) {
-      return 400;
+      errorFeedback("Error with the user register, try again");
+      return false;
     }
-    return response.status;
+    setTimeout(() => navigate("/login"), 2000);
+    return true;
   };
 
   const loginUser = async (userLogin: UserLogin) => {
