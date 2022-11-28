@@ -28,12 +28,16 @@ const useUser = () => {
       const { data } = await axios.post(environments.login, userLogin);
       const user = decodeToken(data.user.token);
       const loginUser = { ...user, isLogged: true };
+
       successFeedback(`Welcome ${user.userName}`);
       dispatch(userLoginActionCreator(loginUser));
       localStorage.setItem("token", loginUser.token);
       navigate("/main");
+
+      return true;
     } catch (error) {
       errorFeedback("User or password not valid");
+      return false;
     }
   };
 
