@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import MainPage from "./MainPage";
 
-describe.skip("Given a MainPage component", () => {
+describe("Given a MainPage component", () => {
   describe("When it's instantiated", () => {
     test("Then it should show a heading", () => {
       const titleText = "Dashboard";
