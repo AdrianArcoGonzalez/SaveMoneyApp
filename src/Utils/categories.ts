@@ -11,23 +11,23 @@ const homeIcon = "https://cdn-icons-png.flaticon.com/512/619/619153.png";
 
 export const categories: Category[] = [
   {
-    name: "food",
+    name: "Food",
     icon: foodIcon,
   },
   {
-    name: "technology",
+    name: "Technology",
     icon: techIcon,
   },
   {
-    name: "clothes",
+    name: "Clothes",
     icon: clothesIcon,
   },
   {
-    name: "travel",
+    name: "Travel",
     icon: travelIcon,
   },
   {
-    name: "home",
+    name: "Home",
     icon: homeIcon,
   },
 ];
