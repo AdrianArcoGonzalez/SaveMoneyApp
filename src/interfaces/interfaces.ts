@@ -62,3 +62,8 @@ export interface Category {
   name: string;
   icon: string;
 }
+
+export interface GraphicData {
+  name: string;
+  value: number;
+}
