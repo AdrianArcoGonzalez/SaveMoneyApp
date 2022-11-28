@@ -15,8 +15,13 @@ const Login = (): JSX.Element => {
         initialValues={initialValues}
         validationSchema={validateLoginSchema}
         onSubmit={(values, { resetForm }) => {
-          loginUser(values);
-          resetForm();
+          (async () => {
+            if (await loginUser(values)) {
+              console.log("hola");
+              resetForm();
+            }
+            return;
+          })();
         }}
       >
         <LoginFormikForm />
