@@ -1,8 +1,9 @@
-import LoginStyled from "./LoginStyled";
 import { Formik } from "formik";
 import { validateLoginSchema } from "../../schemas/validateLoginSchema";
 import LoginFormikForm from "../LoginFormikForm/LoginFormikForm";
 import { UserLogin } from "../../interfaces/interfaces";
+
+import LoginStyled from "./LoginStyled";
 import useUser from "../../hooks/useUser/useUser";
 
 const initialValues: UserLogin = { userName: "", password: "" };

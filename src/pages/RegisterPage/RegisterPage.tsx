@@ -4,13 +4,12 @@ import RegisterPageStyled from "./RegisterPageStyled";
 const RegisterPage = (): JSX.Element => {
   return (
     <RegisterPageStyled>
-      <div className="secondary-title-container">
-        <h2 className="secondary-title">
+      <div className="secondary-title">
+        <h2 className="secondary-title__text">
           Save your time and your
-          <span className="secondary-title--blue"> money</span>
+          <span className="secondary-title_text--blue"> money</span>
         </h2>
       </div>
-      <h3 className="third-title">Welcome!</h3>
       <Register />
     </RegisterPageStyled>
   );

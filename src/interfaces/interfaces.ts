@@ -26,8 +26,8 @@ export interface UserLoged {
 }
 
 export interface UserMoneyData extends UserLoged {
-  incomes: number;
-  spends: number;
+  incomes: Income[];
+  expenses: Expense[];
   moneySaved: number;
   currency: "€" | "$";
   savingTarget: number;
@@ -38,14 +38,12 @@ export interface MoneyData {
   savingTarget: number;
 }
 
-export type Category = "Food" | "Home" | "Clothes" | "Movility" | "Technology";
-
 export interface Expense {
   name: string;
-  category: Category;
   quantity: number;
   date: string;
   icon: string;
+  category: string;
 }
 
 export interface Income {
@@ -58,4 +56,14 @@ export interface PayloadToken {
   id: string;
   userName: string;
   iat: number;
+}
+export interface IncomesValues {
+  incomes: number;
+  saving: number;
+  currency: "€" | "$";
+}
+
+export interface Category {
+  name: string;
+  icon: string;
 }
