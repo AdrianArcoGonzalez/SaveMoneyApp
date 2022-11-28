@@ -1,4 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { mockUser } from "../../Utils/mockBack";
+import MovementsListStyled from "./MovementsListStyled";
 
 const user = mockUser;
 const MovementsList = (): JSX.Element => {
@@ -7,31 +10,39 @@ const MovementsList = (): JSX.Element => {
   movements.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
 
   const movementsList = movements.map((movement) => (
-    <li key={movement.name + movement.date + movement.category}>
+    <li
+      key={movement.name + movement.date + movement.category}
+      className="list-container__movement"
+    >
       <img
-        width={24}
+        width={35}
         src={movement.icon}
         alt={`Category icon of ${movement.category}`}
       />
-      <div>
-        <span>{movement.name}</span>
-        <span>{movement.date}</span>
+      <div className="movement-data">
+        <span className="movement-data__name">{movement.category}</span>
+        <span className="movement-data__date">{movement.date}</span>
       </div>
 
       {movement.category === "Income" ? (
-        <span>{`${movement.quantity} ${user.currency}`}</span>
+        <span className="movement-quantity">{`${movement.quantity} ${user.currency}`}</span>
       ) : (
-        <span className="expense">{`- ${movement.quantity} ${user.currency}`}</span>
+        <span className="movement-quantity movement-quantity--expense">{`- ${movement.quantity} ${user.currency}`}</span>
       )}
-      <button>{">"}</button>
+
+      <FontAwesomeIcon
+        icon={faChevronRight}
+        height={25}
+        className="movement__icon"
+      />
     </li>
   ));
 
   return (
-    <div>
-      <h3>Recent movements</h3>
-      {movementsList}
-    </div>
+    <MovementsListStyled>
+      <h3 className="movements-list__title">Recent movements</h3>
+      <ul className="list-container">{movementsList}</ul>
+    </MovementsListStyled>
   );
 };
 
