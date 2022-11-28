@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import { IncomesExpensesFormikFormStyled } from "./IncomesExpensesFormikFormStyled";
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { categories } from "../../Utils/categories";
-import { Expense } from "../../interfaces/interfaces";
+import { ExpenseIncome } from "../../interfaces/interfaces";
 
 interface IncomesExpensesFormikFormProps {
   type: "Income" | "Expense";
@@ -14,7 +14,7 @@ const imageWidth = 37;
 export const IncomesExpensesFormikForm = ({
   type,
 }: IncomesExpensesFormikFormProps): JSX.Element => {
-  const { isValid, values } = useFormikContext<Expense>();
+  const { isValid, values } = useFormikContext<ExpenseIncome>();
 
   return (
     <IncomesExpensesFormikFormStyled>
