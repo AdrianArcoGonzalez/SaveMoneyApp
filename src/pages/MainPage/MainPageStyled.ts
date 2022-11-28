@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 const MainPageStyled = styled.div`
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 
   .main-title {
     font-size: 1rem;

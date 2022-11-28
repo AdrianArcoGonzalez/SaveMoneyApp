@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const MovementsListStyled = styled.div`
   width: 100%;
-  min-width: 320px;
-  max-width: 450px;
   display: flex;
   flex-direction: column;
   gap: 20px;
