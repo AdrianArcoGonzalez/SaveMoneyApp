@@ -2,13 +2,16 @@ import styled from "styled-components";
 
 const LayoutStyled = styled.div`
   display: flex;
-  max-width: 320px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 450px;
+  padding: 20px;
   margin: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  @media (min-width: 320px) {
+  @media (min-width: 450px) {
     margin-top: 150px;
     padding: 20px;
     border-radius: 10px;

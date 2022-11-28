@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-export const NavigationBarStyled = styled.div`
+const NavigationBarStyled = styled.div`
   padding: 10px 0;
-  margin-bottom: 10px;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  position: fixed;
   bottom: 10px;
-
+  background-color: white;
   border-top: 1px solid black;
 
   .navigation-bar__link {
@@ -33,3 +31,5 @@ export const NavigationBarStyled = styled.div`
     color: #3070ad;
   }
 `;
+
+export default NavigationBarStyled;

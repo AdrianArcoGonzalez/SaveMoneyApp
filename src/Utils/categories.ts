@@ -1,5 +1,8 @@
 import { Category } from "../interfaces/interfaces";
 
+export const incomeIcon =
+  "https://cdn-icons-png.flaticon.com/512/1295/1295801.png";
+
 const foodIcon = "https://cdn-icons-png.flaticon.com/512/1886/1886722.png";
 const techIcon = "https://cdn-icons-png.flaticon.com/512/689/689355.png";
 const clothesIcon = "https://cdn-icons-png.flaticon.com/512/7529/7529519.png";
@@ -8,23 +11,23 @@ const homeIcon = "https://cdn-icons-png.flaticon.com/512/619/619153.png";
 
 export const categories: Category[] = [
   {
-    name: "food",
+    name: "Food",
     icon: foodIcon,
   },
   {
-    name: "technology",
+    name: "Technology",
     icon: techIcon,
   },
   {
-    name: "clothes",
+    name: "Clothes",
     icon: clothesIcon,
   },
   {
-    name: "travel",
+    name: "Travel",
     icon: travelIcon,
   },
   {
-    name: "home",
+    name: "Home",
     icon: homeIcon,
   },
 ];

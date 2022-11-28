@@ -8,6 +8,7 @@ import {
 import { mockUser } from "../../Utils/mockBack";
 import MainPageStyled from "./MainPageStyled";
 import Graphic from "../../components/Graphic/Graphic";
+import MovementsList from "../../components/MovementsList/MovementsList";
 import { GraphicData, UserMoneyData } from "../../interfaces/interfaces";
 
 const MainPage = (): JSX.Element => {
@@ -38,6 +39,7 @@ const MainPage = (): JSX.Element => {
         />
       </div>
       <Graphic data={graphicData(mockUser)} />
+      <MovementsList />
     </MainPageStyled>
   );
 };
