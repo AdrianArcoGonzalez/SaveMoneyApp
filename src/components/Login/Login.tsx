@@ -18,10 +18,8 @@ const Login = (): JSX.Element => {
         onSubmit={(values, { resetForm }) => {
           (async () => {
             if (await loginUser(values)) {
-              console.log("hola");
               resetForm();
             }
-            return;
           })();
         }}
       >
