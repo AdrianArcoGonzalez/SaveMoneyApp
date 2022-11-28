@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import renderWithFormik from "../../Utils/test-utils";
-import { NavigationBar } from "./NavigationBar";
+import NavigationBar from "./NavigationBar";
 
 describe("Given a component NavigationBar", () => {
   describe("When rendered", () => {
