@@ -1,4 +1,4 @@
-import { Expense, Income } from "../interfaces/interfaces";
+import { ExpenseIncome, Income } from "../interfaces/interfaces";
 
 export const getLimitToWaste = (
   incomes: Income[],
@@ -23,7 +23,7 @@ export const getTotalIncomes = (incomes: Income[]): number => {
   return totalIncomes;
 };
 
-export const getTotalExpenses = (expenses: Expense[]): number => {
+export const getTotalExpenses = (expenses: ExpenseIncome[]): number => {
   let initialExpense = 0;
 
   const totalExpenses = expenses.reduce(

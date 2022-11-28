@@ -1,4 +1,4 @@
-import { Expense, UserMoneyData } from "../interfaces/interfaces";
+import { ExpenseIncome, UserMoneyData } from "../interfaces/interfaces";
 
 export const mockUser: UserMoneyData = {
   userName: "test",
@@ -38,7 +38,7 @@ export const mockUser: UserMoneyData = {
   savingTarget: 1000,
 };
 
-export const mockExpense: Expense = {
+export const mockExpense: ExpenseIncome = {
   category: "",
   date: "",
   icon: "",

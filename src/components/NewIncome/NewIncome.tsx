@@ -1,12 +1,13 @@
 import { Formik } from "formik";
-import { Expense } from "../../interfaces/interfaces";
+import { ExpenseIncome } from "../../interfaces/interfaces";
 import { validateIncomesExpensesForm } from "../../schemas/validateIncomesExpensesForm";
+import { incomeIcon } from "../../Utils/categories";
 import { IncomesExpensesFormikForm } from "../IncomesExpensesFormikForm/IncomesExpensesFormikForm";
 
-const expense: Expense = {
-  category: "",
+const expense: ExpenseIncome = {
+  category: "Income",
   date: "",
-  icon: "",
+  icon: incomeIcon,
   name: "",
   quantity: 0,
 };
