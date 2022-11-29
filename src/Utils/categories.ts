@@ -43,3 +43,12 @@ export const incomesCategories = {
     icon: incomeIcon,
   },
 };
+
+export const expensesCategoriesList = () => {
+  const categoriesList: Category[] = [];
+  Object.entries(expensesCategories).forEach(([key, value]) => {
+    categoriesList.push(value);
+  });
+
+  return categoriesList;
+};
