@@ -10,7 +10,7 @@ const travelIcon = "https://cdn-icons-png.flaticon.com/512/2060/2060284.png";
 const homeIcon = "https://cdn-icons-png.flaticon.com/512/619/619153.png";
 const transportIcon = "https://cdn-icons-png.flaticon.com/512/776/776625.png";
 
-export const categories = {
+export const expensesCategories = {
   food: {
     name: "Food",
     icon: foodIcon,
@@ -34,5 +34,12 @@ export const categories = {
   transport: {
     name: "Transport",
     icon: transportIcon,
+  },
+};
+
+export const incomesCategories = {
+  income: {
+    name: "Income",
+    icon: incomeIcon,
   },
 };
