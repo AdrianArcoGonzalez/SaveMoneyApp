@@ -59,6 +59,20 @@ export const mockUser: UserMoneyData = {
       icon: categories[4].icon,
       category: categories[4].name,
     },
+    {
+      name: "Gasoline",
+      quantity: 230,
+      date: "24-11-2022",
+      icon: "",
+      category: "Transport",
+    },
+    {
+      name: "Dinner",
+      quantity: 60,
+      date: "25-11-2022",
+      icon: "",
+      category: "Tagliatela",
+    },
   ],
   savingTarget: 1000,
 };
