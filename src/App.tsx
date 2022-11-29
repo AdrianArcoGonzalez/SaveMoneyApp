@@ -10,8 +10,13 @@ import Layout from "./components/Layout/Layout";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import IncomesPage from "./pages/IncomesPage/IncomesPage";
 import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
+import CredentialsRoutes from "./components/CredentialsRoutes/Credentials";
+import UserContext from "./store/UserContext/UserContext";
+import { useContext } from "react";
+import NoCredentialsRoutes from "./components/NoCredentialsRoutes/NoCredentialsRoutes";
 
 const App = (): JSX.Element => {
+  const { user } = useContext(UserContext);
   return (
     <Layout
       children={[
@@ -31,12 +36,54 @@ const App = (): JSX.Element => {
         <Header />,
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/main" element={<MainPage />} />
-          <Route path="/incomes" element={<IncomesPage />} />
-          <Route path="/expenses" element={<ExpensesPage />} />
+          <Route
+            path="/home"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <LandingPage />
+              </NoCredentialsRoutes>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <LoginPage />
+              </NoCredentialsRoutes>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <RegisterPage />
+              </NoCredentialsRoutes>
+            }
+          />
+          <Route
+            path="/main"
+            element={
+              <CredentialsRoutes isLogged={user.isLogged}>
+                <MainPage />
+              </CredentialsRoutes>
+            }
+          />
+          <Route
+            path="/incomes"
+            element={
+              <CredentialsRoutes isLogged={user.isLogged}>
+                <IncomesPage />
+              </CredentialsRoutes>
+            }
+          />
+          <Route
+            path="/expenses"
+            element={
+              <CredentialsRoutes isLogged={user.isLogged}>
+                <ExpensesPage />
+              </CredentialsRoutes>
+            }
+          />
         </Routes>,
         <NavigationBar />,
       ]}
