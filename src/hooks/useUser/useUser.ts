@@ -7,6 +7,7 @@ import UserContext from "../../store/UserContext/UserContext";
 import { userLoginActionCreator } from "../../store/actions/userActions/userActions";
 import { useNavigate } from "react-router-dom";
 import { useFeedback } from "../useFeedback/useFeedback";
+import { mockUser } from "../../Utils/mockBack";
 
 const useUser = () => {
   const { dispatch } = useContext(UserContext);
@@ -30,7 +31,7 @@ const useUser = () => {
     try {
       const { data } = await axios.post(environments.login, userLogin);
       const user = decodeToken(data.user.token);
-      const loginUser = { ...user, isLogged: true };
+      const loginUser = { ...mockUser, ...user, isLogged: true };
 
       successFeedback(`Welcome ${user.userName}`);
       dispatch(userLoginActionCreator(loginUser));
