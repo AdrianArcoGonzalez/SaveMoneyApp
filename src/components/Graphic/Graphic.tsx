@@ -42,7 +42,7 @@ const Graphic = ({ data }: GraphicProps): JSX.Element => {
       <h2 className="title">Expenses</h2>
       <ReactEcharts
         option={option}
-        style={{ width: "320px", height: "320px" }}
+        style={{ width: "280px", height: "280px" }}
       ></ReactEcharts>
     </GraphicStyled>
   );
