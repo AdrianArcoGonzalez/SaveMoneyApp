@@ -42,7 +42,6 @@ export interface ExpenseIncome {
   name: string;
   quantity: number;
   date: string;
-  icon: string;
   category: Category;
 }
 
