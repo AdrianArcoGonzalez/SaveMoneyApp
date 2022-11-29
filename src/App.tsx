@@ -10,8 +10,12 @@ import Layout from "./components/Layout/Layout";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import IncomesPage from "./pages/IncomesPage/IncomesPage";
 import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
+import ProtectorRoutes from "./components/ProtectorRoutes/ProtectorRoutes";
+import UserContext from "./store/UserContext/UserContext";
+import { useContext } from "react";
 
 const App = (): JSX.Element => {
+  const { user } = useContext(UserContext);
   return (
     <Layout
       children={[
@@ -34,9 +38,30 @@ const App = (): JSX.Element => {
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/main" element={<MainPage />} />
-          <Route path="/incomes" element={<IncomesPage />} />
-          <Route path="/expenses" element={<ExpensesPage />} />
+          <Route
+            path="/main"
+            element={
+              <ProtectorRoutes isLogged={user.isLogged}>
+                <MainPage />
+              </ProtectorRoutes>
+            }
+          />
+          <Route
+            path="/incomes"
+            element={
+              <ProtectorRoutes isLogged={user.isLogged}>
+                <IncomesPage />
+              </ProtectorRoutes>
+            }
+          />
+          <Route
+            path="/expenses"
+            element={
+              <ProtectorRoutes isLogged={user.isLogged}>
+                <ExpensesPage />
+              </ProtectorRoutes>
+            }
+          />
         </Routes>,
         <NavigationBar />,
       ]}
