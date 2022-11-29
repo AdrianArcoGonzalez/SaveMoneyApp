@@ -49,25 +49,26 @@ export const IncomesExpensesFormikForm = ({
               <div className="radio-container">
                 <label htmlFor="radio-group">Choose an expense icon</label>
                 <ul role="group" id="radio-group" className="form-radio-group">
-                  {expensesCategoriesList().map((categorie) => {
-                    if (values.category.name === categorie.name) {
-                      values.category.icon = categorie.icon;
+                  {expensesCategoriesList().map((category) => {
+                    if (values.category.name === category.name) {
+                      values.category.icon = category.icon;
                     }
 
                     return (
-                      <li key={categorie.name}>
-                        <label key={categorie.name}>
+                      <li>
+                        <label>
                           <Field
                             type="radio"
-                            name="category"
-                            value={categorie.name}
+                            name="category.name"
+                            value={category.name}
                           />
+
                           <img
-                            src={categorie.icon}
+                            src={category.icon}
                             alt="logo"
                             width={imageWidth}
                             className={
-                              values.category.name === categorie.name
+                              values.category.name === category.name
                                 ? "active"
                                 : ""
                             }
