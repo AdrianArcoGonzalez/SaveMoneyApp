@@ -1,21 +1,21 @@
 import { Formik } from "formik";
-import { ExpenseIncome } from "../../interfaces/interfaces";
+
 import { validateIncomesExpensesForm } from "../../schemas/validateIncomesExpensesForm";
-import { incomeIcon } from "../../Utils/categories";
+import { incomesCategories } from "../../Utils/categories";
+import { mockExpense } from "../../Utils/mockBack";
 import { IncomesExpensesFormikForm } from "../IncomesExpensesFormikForm/IncomesExpensesFormikForm";
 
-const expense: ExpenseIncome = {
-  category: "Income",
-  date: "",
-  icon: incomeIcon,
-  name: "",
-  quantity: 0,
-};
-
 export const NewIncome = () => {
+  const income = {
+    ...mockExpense,
+    category: {
+      name: incomesCategories.income.name,
+      icon: incomesCategories.income.icon,
+    },
+  };
   return (
     <Formik
-      initialValues={expense}
+      initialValues={income}
       onSubmit={() => {}}
       validationSchema={validateIncomesExpensesForm}
     >
