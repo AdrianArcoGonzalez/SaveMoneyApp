@@ -1,9 +1,9 @@
 import { Formik } from "formik";
-import { Expense } from "../../interfaces/interfaces";
+import { ExpenseIncome } from "../../interfaces/interfaces";
 import { validateIncomesExpensesForm } from "../../schemas/validateIncomesExpensesForm";
 import { IncomesExpensesFormikForm } from "../IncomesExpensesFormikForm/IncomesExpensesFormikForm";
 
-const expense: Expense = {
+const expense: ExpenseIncome = {
   category: "",
   date: "",
   icon: "",

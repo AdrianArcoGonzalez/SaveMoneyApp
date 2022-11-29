@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MainPageStyled = styled.div`
+const IncomesPageStyled = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,4 +12,4 @@ const MainPageStyled = styled.div`
   }
 `;
 
-export default MainPageStyled;
+export default IncomesPageStyled;
