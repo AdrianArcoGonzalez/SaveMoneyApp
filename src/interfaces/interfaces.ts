@@ -23,15 +23,13 @@ export interface UserLoged {
   userName: string;
   token: string;
   isLogged?: boolean;
-}
-
-export interface UserMoneyData extends UserLoged {
   incomes: ExpenseIncome[];
   expenses: ExpenseIncome[];
   moneySaved: number;
   currency: "€" | "$";
   savingTarget: number;
 }
+
 export interface MoneyData {
   incomes: number;
   currency: "€" | "$";
