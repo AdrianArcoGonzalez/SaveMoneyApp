@@ -1,11 +1,8 @@
 import jwt from "jwt-decode";
+import { PayloadToken } from "../interfaces/interfaces";
 
 const decodeToken = (token: string) => {
-  const payloadToken: {
-    id: string;
-    userName: string;
-    iat: number;
-  } = jwt(token);
+  const payloadToken: PayloadToken = jwt(token);
 
   const user = {
     token: token,

@@ -46,6 +46,17 @@ export interface ExpenseIncome {
   category: string;
 }
 
+export interface Income {
+  name: string;
+  quantity: number;
+  date: string;
+}
+
+export interface PayloadToken {
+  id: string;
+  userName: string;
+  iat: number;
+}
 export interface IncomesValues {
   incomes: number;
   saving: number;
