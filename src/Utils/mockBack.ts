@@ -1,7 +1,18 @@
-import { ExpenseIncome, UserMoneyData } from "../interfaces/interfaces";
+import { ExpenseIncome, UserLoged } from "../interfaces/interfaces";
 import { expensesCategories, incomesCategories } from "./categories";
 
-export const mockUser: UserMoneyData = {
+export const initialUser: UserLoged = {
+  userName: "",
+  token: "",
+  isLogged: false,
+  currency: "$",
+  incomes: [],
+  moneySaved: 0,
+  expenses: [],
+  savingTarget: 0,
+};
+
+export const mockUser: UserLoged = {
   userName: "test",
   token: "123123",
   isLogged: true,
