@@ -26,7 +26,7 @@ const MainPage = (): JSX.Element => {
         currencyType={mockUser.currency}
       />
 
-      <MovementsList />
+      <MovementsList type="Recent movements" />
     </MainPageStyled>
   );
 };
