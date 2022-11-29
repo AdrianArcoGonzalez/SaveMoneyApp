@@ -10,9 +10,10 @@ import Layout from "./components/Layout/Layout";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import IncomesPage from "./pages/IncomesPage/IncomesPage";
 import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
-import ProtectorRoutes from "./components/ProtectorRoutes/ProtectorRoutes";
+import CredentialsRoutes from "./components/CredentialsRoutes/Credentials";
 import UserContext from "./store/UserContext/UserContext";
 import { useContext } from "react";
+import NoCredentialsRoutes from "./components/NoCredentialsRoutes/NoCredentialsRoutes";
 
 const App = (): JSX.Element => {
   const { user } = useContext(UserContext);
@@ -35,31 +36,52 @@ const App = (): JSX.Element => {
         <Header />,
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/home"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <LandingPage />
+              </NoCredentialsRoutes>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <LoginPage />
+              </NoCredentialsRoutes>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <NoCredentialsRoutes isLogged={user.isLogged}>
+                <RegisterPage />
+              </NoCredentialsRoutes>
+            }
+          />
           <Route
             path="/main"
             element={
-              <ProtectorRoutes isLogged={user.isLogged}>
+              <CredentialsRoutes isLogged={user.isLogged}>
                 <MainPage />
-              </ProtectorRoutes>
+              </CredentialsRoutes>
             }
           />
           <Route
             path="/incomes"
             element={
-              <ProtectorRoutes isLogged={user.isLogged}>
+              <CredentialsRoutes isLogged={user.isLogged}>
                 <IncomesPage />
-              </ProtectorRoutes>
+              </CredentialsRoutes>
             }
           />
           <Route
             path="/expenses"
             element={
-              <ProtectorRoutes isLogged={user.isLogged}>
+              <CredentialsRoutes isLogged={user.isLogged}>
                 <ExpensesPage />
-              </ProtectorRoutes>
+              </CredentialsRoutes>
             }
           />
         </Routes>,
