@@ -1,6 +1,9 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { categories } from "../../Utils/categories";
+import {
+  expensesCategories,
+  expensesCategoriesList,
+} from "../../Utils/categories";
 import { mockExpense } from "../../Utils/mockBack";
 import renderWithFormik from "../../Utils/test-utils";
 import { IncomesExpensesFormikForm } from "./IncomesExpensesFormikForm";
@@ -37,7 +40,7 @@ describe("Given a component IncomesExpensesFormikForm", () => {
       const incomeValuelabel = "Expense value";
       const incomeDateLabel = "Expense date";
       const buttonText = "Add new expense";
-      const expectedRadioButtons = categories;
+      const expectedRadioButtons = expensesCategoriesList();
 
       renderWithFormik(
         <IncomesExpensesFormikForm type="Expense" />,
