@@ -2,10 +2,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { mockUser } from "../../Utils/mockBack";
 import MovementsListStyled from "./MovementsListStyled";
+import { ExpenseIncome } from "../../interfaces/interfaces";
+
+interface MovemenstListProps {
+  type: "Incomes" | "Expenses" | "Recent movements";
+}
 
 const user = mockUser;
-const MovementsList = (): JSX.Element => {
-  const movements = [...user.incomes, ...user.expenses];
+const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
+  let movements: ExpenseIncome[] = [];
+
+  switch (type) {
+    case "Incomes":
+      movements = user.incomes;
+      break;
+
+    case "Expenses":
+      movements = user.expenses;
+      break;
+
+    case "Recent movements":
+      movements = [...user.incomes, ...user.expenses];
+      break;
+
+    default:
+      break;
+  }
 
   movements.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
 
@@ -20,7 +42,9 @@ const MovementsList = (): JSX.Element => {
         alt={`Category icon of ${movement.category}`}
       />
       <div className="movement-data">
-        <span className="movement-data__name">{movement.category}</span>
+        <span className="movement-data__name">
+          {type === "Recent movements" ? movement.category : movement.name}
+        </span>
         <span className="movement-data__date">{movement.date}</span>
       </div>
 
@@ -40,7 +64,9 @@ const MovementsList = (): JSX.Element => {
 
   return (
     <MovementsListStyled>
-      <h3 className="movements-list__title">Recent movements</h3>
+      <h3 className="movements-list__title">
+        {type === "Recent movements" ? type : ""}
+      </h3>
       <ul className="list-container">{movementsList}</ul>
     </MovementsListStyled>
   );
