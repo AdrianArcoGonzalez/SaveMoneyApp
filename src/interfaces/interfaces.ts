@@ -43,13 +43,7 @@ export interface ExpenseIncome {
   quantity: number;
   date: string;
   icon: string;
-  category: string;
-}
-
-export interface Income {
-  name: string;
-  quantity: number;
-  date: string;
+  category: Category;
 }
 
 export interface PayloadToken {
