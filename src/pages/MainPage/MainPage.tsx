@@ -9,10 +9,10 @@ import { mockUser } from "../../Utils/mockBack";
 import MainPageStyled from "./MainPageStyled";
 import Graphic from "../../components/Graphic/Graphic";
 import MovementsList from "../../components/MovementsList/MovementsList";
-import { GraphicData, UserMoneyData } from "../../interfaces/interfaces";
+import { GraphicData, UserLoged } from "../../interfaces/interfaces";
 
 const MainPage = (): JSX.Element => {
-  const graphicData = (user: UserMoneyData): GraphicData[] => {
+  const graphicData = (user: UserLoged): GraphicData[] => {
     const data: GraphicData[] = [];
 
     user.expenses.forEach((expense) => {
@@ -25,7 +25,6 @@ const MainPage = (): JSX.Element => {
   return (
     <MainPageStyled>
       <h2 className="main-title">Dashboard</h2>
-
 
       <Card
         income={getTotalIncomes(mockUser.incomes)}
