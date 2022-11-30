@@ -6,23 +6,12 @@ export interface ErrorsHandler {
   confirmEmail?: string;
 }
 
-export interface User {
+export interface UserLogin {
   userName: string;
-  email: string;
   password: string;
 }
-
-export type UserLogin = Omit<User, "email">;
-
-export interface UserRegister extends User {
-  confirmPassword: string;
-  confirmEmail: string;
-}
-
-export interface UserLoged {
+export interface User {
   userName: string;
-  token: string;
-  isLogged?: boolean;
   incomes: ExpenseIncome[];
   expenses: ExpenseIncome[];
   moneySaved: number;
@@ -30,6 +19,20 @@ export interface UserLoged {
   savingTarget: number;
 }
 
+export interface UserRegister extends User {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  confirmEmail: string;
+}
+
+export interface UserLoged extends User {
+  token: string;
+  isLogged?: boolean;
+}
+export interface UserFromDb extends UserLoged {
+  id: string;
+}
 export interface MoneyData {
   incomes: number;
   currency: "€" | "$";
@@ -46,6 +49,11 @@ export interface ExpenseIncome {
 export interface PayloadToken {
   id: string;
   userName: string;
+  incomes: ExpenseIncome[];
+  expenses: ExpenseIncome[];
+  moneySaved: number;
+  currency: "€" | "$";
+  savingTarget: number;
   iat: number;
 }
 export interface IncomesValues {
