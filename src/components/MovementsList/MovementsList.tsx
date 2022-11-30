@@ -1,15 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { mockUser } from "../../Utils/mockBack";
 import MovementsListStyled from "./MovementsListStyled";
 import { ExpenseIncome } from "../../interfaces/interfaces";
+import { useContext } from "react";
+import UserContext from "../../store/UserContext/UserContext";
 
 interface MovemenstListProps {
   type: "Incomes" | "Expenses" | "Recent movements";
 }
 
-const user = mockUser;
 const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
+  const { user } = useContext(UserContext);
   let movements: ExpenseIncome[] = [];
 
   switch (type) {

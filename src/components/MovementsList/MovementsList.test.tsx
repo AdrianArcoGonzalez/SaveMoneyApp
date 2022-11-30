@@ -1,6 +1,6 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { mockUser } from "../../Utils/mockBack";
-import renderWithFormik from "../../Utils/test-utils";
+import { Wrapper } from "../../Utils/Wrapper";
 import MovementsList from "./MovementsList";
 
 describe("Given a component MovementsList", () => {
@@ -8,7 +8,7 @@ describe("Given a component MovementsList", () => {
     test("Then it should show a expenses list with too many movements as received", () => {
       const movements = mockUser.expenses.length + mockUser.incomes.length;
 
-      renderWithFormik(<MovementsList type="Recent movements" />, { mockUser });
+      render(<MovementsList type="Recent movements" />, { wrapper: Wrapper });
 
       const movementsList = screen.getAllByRole("listitem");
 
@@ -20,9 +20,7 @@ describe("Given a component MovementsList", () => {
     test("Then it should show a expenses list with too many expenses as received", () => {
       const expenses = mockUser.expenses.length;
 
-      renderWithFormik(<MovementsList type="Expenses" />, {
-        mockUser,
-      });
+      render(<MovementsList type="Expenses" />, { wrapper: Wrapper });
 
       const movementsList = screen.getAllByRole("listitem");
 
@@ -34,9 +32,7 @@ describe("Given a component MovementsList", () => {
     test("Then it should show a expenses list with too many incomes as received", () => {
       const incomes = mockUser.incomes.length;
 
-      renderWithFormik(<MovementsList type="Incomes" />, {
-        mockUser,
-      });
+      render(<MovementsList type="Incomes" />, { wrapper: Wrapper });
 
       const movementsList = screen.getAllByRole("listitem");
 
