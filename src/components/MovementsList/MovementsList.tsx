@@ -1,15 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { mockUser } from "../../Utils/mockBack";
 import MovementsListStyled from "./MovementsListStyled";
 import { ExpenseIncome } from "../../interfaces/interfaces";
+import { useContext } from "react";
+import UserContext from "../../store/UserContext/UserContext";
 
 interface MovemenstListProps {
   type: "Incomes" | "Expenses" | "Recent movements";
 }
 
-const user = mockUser;
 const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
+  const { user } = useContext(UserContext);
   let movements: ExpenseIncome[] = [];
 
   switch (type) {
@@ -38,17 +39,17 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
     >
       <img
         width={35}
-        src={movement.icon}
+        src={movement.category.icon}
         alt={`Category icon of ${movement.category}`}
       />
       <div className="movement-data">
         <span className="movement-data__name">
-          {type === "Recent movements" ? movement.category : movement.name}
+          {type === "Recent movements" ? movement.category.name : movement.name}
         </span>
         <span className="movement-data__date">{movement.date}</span>
       </div>
 
-      {movement.category === "Income" ? (
+      {movement.category.name === "Income" ? (
         <span className="movement-quantity">{`${movement.quantity} ${user.currency}`}</span>
       ) : (
         <span className="movement-quantity movement-quantity--expense">{`- ${movement.quantity} ${user.currency}`}</span>

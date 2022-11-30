@@ -1,7 +1,18 @@
-import { ExpenseIncome, UserMoneyData } from "../interfaces/interfaces";
-import { categories, incomeIcon } from "./categories";
+import { ExpenseIncome, UserLoged } from "../interfaces/interfaces";
+import { expensesCategories, incomesCategories } from "./categories";
 
-export const mockUser: UserMoneyData = {
+export const initialUser: UserLoged = {
+  userName: "",
+  token: "",
+  isLogged: false,
+  currency: "$",
+  incomes: [],
+  moneySaved: 0,
+  expenses: [],
+  savingTarget: 0,
+};
+
+export const mockUser: UserLoged = {
   userName: "test",
   token: "123123",
   isLogged: true,
@@ -11,29 +22,37 @@ export const mockUser: UserMoneyData = {
       name: "work",
       quantity: 2000,
       date: "2022-11-01",
-      category: "Income",
-      icon: incomeIcon,
+      category: {
+        name: incomesCategories.income.name,
+        icon: incomesCategories.income.icon,
+      },
     },
     {
       name: "work extra payment",
       quantity: 1000,
       date: "2022-11-15",
-      category: "Income",
-      icon: incomeIcon,
+      category: {
+        name: incomesCategories.income.name,
+        icon: incomesCategories.income.icon,
+      },
     },
     {
       name: "Sell clothes",
       quantity: 180,
       date: "2022-11-23",
-      category: "Income",
-      icon: incomeIcon,
+      category: {
+        name: incomesCategories.income.name,
+        icon: incomesCategories.income.icon,
+      },
     },
     {
       name: "Won in casino",
       quantity: 2000,
       date: "2022-11-28",
-      category: "Income",
-      icon: incomeIcon,
+      category: {
+        name: incomesCategories.income.name,
+        icon: incomesCategories.income.icon,
+      },
     },
   ],
   moneySaved: 8000,
@@ -42,45 +61,57 @@ export const mockUser: UserMoneyData = {
       name: "Zara",
       quantity: 300,
       date: "2022-11-27",
-      icon: categories[2].icon,
-      category: categories[2].name,
+      category: {
+        name: expensesCategories.clothes.name,
+        icon: expensesCategories.clothes.icon,
+      },
     },
     {
       name: "Mercadona",
       quantity: 200,
       date: "2022-11-24",
-      icon: categories[0].icon,
-      category: categories[0].name,
+      category: {
+        name: expensesCategories.food.name,
+        icon: expensesCategories.food.icon,
+      },
     },
     {
       name: "Rent",
       quantity: 500,
       date: "2022-11-28",
-      icon: categories[4].icon,
-      category: categories[4].name,
+      category: {
+        name: expensesCategories.home.name,
+        icon: expensesCategories.home.icon,
+      },
     },
     {
       name: "Gasoline",
       quantity: 230,
       date: "24-11-2022",
-      icon: "",
-      category: "Transport",
+      category: {
+        name: expensesCategories.transport.name,
+        icon: expensesCategories.transport.icon,
+      },
     },
     {
       name: "Dinner",
       quantity: 60,
       date: "25-11-2022",
-      icon: "",
-      category: "Tagliatela",
+      category: {
+        name: expensesCategories.food.name,
+        icon: expensesCategories.food.icon,
+      },
     },
   ],
   savingTarget: 1000,
 };
 
 export const mockExpense: ExpenseIncome = {
-  category: "",
+  category: {
+    name: "",
+    icon: "",
+  },
   date: "",
-  icon: "",
   name: "",
   quantity: 0,
 };

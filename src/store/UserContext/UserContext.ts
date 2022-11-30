@@ -1,5 +1,6 @@
 import { createContext, Dispatch } from "react";
 import { UserLoged } from "../../interfaces/interfaces";
+import { initialUser } from "../../Utils/mockBack";
 import { Action } from "../types/actions";
 
 interface IUserContext {
@@ -8,11 +9,7 @@ interface IUserContext {
 }
 
 const UserContext = createContext<IUserContext>({
-  user: {
-    userName: "",
-    token: "",
-    isLogged: false,
-  },
+  user: initialUser,
   dispatch: () => {},
 });
 

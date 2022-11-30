@@ -2,7 +2,7 @@ import { Field, Form, useFormikContext } from "formik";
 import Button from "../Button/Button";
 import { IncomesExpensesFormikFormStyled } from "./IncomesExpensesFormikFormStyled";
 import CustomInputField from "../CustomInputField/CustomInputField";
-import { categories } from "../../Utils/categories";
+import { expensesCategoriesList } from "../../Utils/categories";
 import { ExpenseIncome } from "../../interfaces/interfaces";
 
 interface IncomesExpensesFormikFormProps {
@@ -15,7 +15,6 @@ export const IncomesExpensesFormikForm = ({
   type,
 }: IncomesExpensesFormikFormProps): JSX.Element => {
   const { isValid, values } = useFormikContext<ExpenseIncome>();
-
   return (
     <IncomesExpensesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
@@ -32,7 +31,7 @@ export const IncomesExpensesFormikForm = ({
           <CustomInputField
             class="form-input"
             label={`${type} value`}
-            name="value"
+            name="quantity"
             placeholder="25"
             type="number"
           />
@@ -49,31 +48,36 @@ export const IncomesExpensesFormikForm = ({
             <>
               <div className="radio-container">
                 <label htmlFor="radio-group">Choose an expense icon</label>
-                <div role="group" id="radio-group" className="form-radio-group">
-                  {categories.map((categorie) => {
-                    if (values.category === categorie.name) {
-                      values.icon = categorie.icon;
+                <ul role="group" id="radio-group" className="form-radio-group">
+                  {expensesCategoriesList().map((category) => {
+                    if (values.category.name === category.name) {
+                      values.category.icon = category.icon;
                     }
 
                     return (
-                      <label key={categorie.name}>
-                        <Field
-                          type="radio"
-                          name="category"
-                          value={categorie.name}
-                        />
-                        <img
-                          src={categorie.icon}
-                          alt="logo"
-                          width={imageWidth}
-                          className={
-                            values.category === categorie.name ? "active" : ""
-                          }
-                        />
-                      </label>
+                      <li>
+                        <label>
+                          <Field
+                            type="radio"
+                            name="category.name"
+                            value={category.name}
+                          />
+
+                          <img
+                            src={category.icon}
+                            alt="logo"
+                            width={imageWidth}
+                            className={
+                              values.category.name === category.name
+                                ? "active"
+                                : ""
+                            }
+                          />
+                        </label>
+                      </li>
                     );
                   })}
-                </div>
+                </ul>
               </div>
             </>
           )}

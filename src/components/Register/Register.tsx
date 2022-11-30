@@ -10,6 +10,11 @@ const initialValues: UserRegister = {
   confirmPassword: "",
   email: "",
   confirmEmail: "",
+  currency: "$",
+  incomes: [],
+  moneySaved: 0,
+  expenses: [],
+  savingTarget: 0,
 };
 const Register = (): JSX.Element => {
   const { registerUser } = useUser();

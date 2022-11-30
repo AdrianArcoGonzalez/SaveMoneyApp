@@ -35,7 +35,8 @@ export const IncomesExpensesFormikFormStyled = styled.div`
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
+    list-style: none;
+    padding: 0;
     flex-wrap: wrap;
     gap: 15px;
 

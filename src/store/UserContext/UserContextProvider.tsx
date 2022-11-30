@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { UserLoged } from "../../interfaces/interfaces";
+import { initialUser } from "../../Utils/mockBack";
 import userReducer from "../reducers/userReducer/userReducer";
 import UserContext from "./UserContext";
 
@@ -10,11 +10,6 @@ interface UserContextProviderProps {
 const UserContextProvider = ({
   children,
 }: UserContextProviderProps): JSX.Element => {
-  const initialUser: UserLoged = {
-    userName: "",
-    token: "",
-    isLogged: false,
-  };
   const [user, dispatch] = useReducer(userReducer, initialUser);
 
   return (
