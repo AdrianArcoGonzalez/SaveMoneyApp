@@ -5,13 +5,16 @@ import {
   getTotalIncomes,
 } from "../../Utils/operationsUtils";
 
-import { mockUser } from "../../Utils/mockBack";
+import { useContext } from "react";
 import MainPageStyled from "./MainPageStyled";
 import Graphic from "../../components/Graphic/Graphic";
 import MovementsList from "../../components/MovementsList/MovementsList";
 import { GraphicData, UserLoged } from "../../interfaces/interfaces";
+import UserContext from "../../store/UserContext/UserContext";
 
 const MainPage = (): JSX.Element => {
+  const { user } = useContext(UserContext);
+
   const graphicData = (user: UserLoged): GraphicData[] => {
     const data: GraphicData[] = [];
 
@@ -27,17 +30,17 @@ const MainPage = (): JSX.Element => {
       <h2 className="main-title">Dashboard</h2>
 
       <Card
-        income={getTotalIncomes(mockUser.incomes)}
-        moneySaved={mockUser.moneySaved}
-        expense={getTotalExpenses(mockUser.expenses)}
-        currencyType={mockUser.currency}
+        income={getTotalIncomes(user.incomes)}
+        moneySaved={user.moneySaved}
+        expense={getTotalExpenses(user.expenses)}
+        currencyType={user.currency}
       />
       <Card
-        limit={getLimitToWaste(mockUser.incomes, mockUser.savingTarget)}
-        expense={getTotalExpenses(mockUser.expenses)}
-        currencyType={mockUser.currency}
+        limit={getLimitToWaste(user.incomes, user.savingTarget)}
+        expense={getTotalExpenses(user.expenses)}
+        currencyType={user.currency}
       />
-      <Graphic data={graphicData(mockUser)} />
+      <Graphic data={graphicData(user)} />
       <MovementsList type="Recent movements" />
     </MainPageStyled>
   );
