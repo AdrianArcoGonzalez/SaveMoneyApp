@@ -31,7 +31,7 @@ export const IncomesExpensesFormikForm = ({
           <CustomInputField
             class="form-input"
             label={`${type} value`}
-            name="value"
+            name="quantity"
             placeholder="25"
             type="number"
           />
