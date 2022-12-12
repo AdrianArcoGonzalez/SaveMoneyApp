@@ -1,4 +1,4 @@
-import { ExpenseIncome } from "../interfaces/interfaces";
+import { Category, ExpenseIncome } from "../interfaces/interfaces";
 
 export const getLimitToWaste = (
   incomes: ExpenseIncome[],
@@ -30,5 +30,23 @@ export const getTotalExpenses = (expenses: ExpenseIncome[]): number => {
     (accumulator, expenses) => accumulator + expenses.quantity,
     initialExpense
   );
+  return totalExpenses;
+};
+
+export const getTotalExpensesByCategory = (
+  expensesList: ExpenseIncome[],
+  category: Category
+) => {
+  const expensesByCategory = expensesList.filter(
+    (expense) => expense.category.name === category.name
+  );
+
+  const totalExpenses: ExpenseIncome = {
+    category: category,
+    quantity: getTotalExpenses(expensesByCategory),
+    date: "",
+    name: "",
+  };
+
   return totalExpenses;
 };
