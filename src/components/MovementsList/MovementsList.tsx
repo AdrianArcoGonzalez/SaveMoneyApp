@@ -4,6 +4,11 @@ import MovementsListStyled from "./MovementsListStyled";
 import { ExpenseIncome } from "../../interfaces/interfaces";
 import { useContext } from "react";
 import UserContext from "../../store/UserContext/UserContext";
+import {
+  getTotalExpensesByCategory,
+  getTotalIncomes,
+} from "../../Utils/operationsUtils";
+import { expensesCategoriesList } from "../../Utils/categories";
 
 interface MovemenstListProps {
   type: "Incomes" | "Expenses" | "Recent movements";
@@ -16,21 +21,34 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
   switch (type) {
     case "Incomes":
       movements = user.incomes;
+      movements.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
       break;
 
     case "Expenses":
       movements = user.expenses;
+      movements.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
       break;
 
     case "Recent movements":
-      movements = [...user.incomes, ...user.expenses];
+      const incomes = [
+        {
+          category: user.incomes[0].category,
+          date: "2000-01-01",
+          name: "Income",
+          quantity: getTotalIncomes(user.incomes),
+        },
+      ];
+
+      const expenses = expensesCategoriesList()
+        .map((category) => getTotalExpensesByCategory(user.expenses, category))
+        .filter((expense) => expense.quantity > 0);
+
+      movements = [...incomes, ...expenses];
       break;
 
     default:
       break;
   }
-
-  movements.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
 
   const movementsList = movements.map((movement) => (
     <li
@@ -46,10 +64,12 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
         <span className="movement-data__name">
           {type === "Recent movements" ? movement.category.name : movement.name}
         </span>
-        <span className="movement-data__date">{movement.date}</span>
+        {type !== "Recent movements" && (
+          <span className="movement-data__date">{movement.date}</span>
+        )}
       </div>
 
-      {movement.category.name === "Income" ? (
+      {movement.category.name === "Incomes" ? (
         <span className="movement-quantity">{`${movement.quantity} ${user.currency}`}</span>
       ) : (
         <span className="movement-quantity movement-quantity--expense">{`- ${movement.quantity} ${user.currency}`}</span>
