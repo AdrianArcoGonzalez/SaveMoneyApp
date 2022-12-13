@@ -1,5 +1,4 @@
-import { UserLoged } from "../../interfaces/interfaces";
-import { Theme } from "../uiContext/uiContext";
+import { Theme, UserLoged } from "../../interfaces/interfaces";
 import { ActionType } from "./actionTypes";
 
 export interface Action {
@@ -21,3 +20,5 @@ export interface LoginAction extends Action {
 export interface ThemeAction extends Action {
   payload: Theme;
 }
+
+export interface FormAction extends Action {}
