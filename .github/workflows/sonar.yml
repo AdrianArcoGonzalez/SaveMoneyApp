@@ -16,7 +16,10 @@ jobs:
       - name: Install
         run: npm install
       - name: Coverage
-        run: npm run test-coverage
+        run: npm run jest-coverage
+        env:
+          SECRET: ${{secrets.SECRET}}
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
