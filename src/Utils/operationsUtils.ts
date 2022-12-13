@@ -1,4 +1,10 @@
-import { Category, ExpenseIncome } from "../interfaces/interfaces";
+import {
+  Category,
+  ExpenseIncome,
+  GraphicData,
+  UserLoged,
+} from "../interfaces/interfaces";
+import { expensesCategoriesList } from "./categories";
 
 export const getLimitToWaste = (
   incomes: ExpenseIncome[],
@@ -45,8 +51,21 @@ export const getTotalExpensesByCategory = (
     category: category,
     quantity: getTotalExpenses(expensesByCategory),
     date: "",
-    name: "",
+    name: category.name,
   };
 
   return totalExpenses;
+};
+
+export const getGraphicData = (user: UserLoged): GraphicData[] => {
+  const data = expensesCategoriesList().map((category) => {
+    const totalByCategory = getTotalExpensesByCategory(user.expenses, category);
+    const currentExpense = {
+      value: totalByCategory.quantity,
+      name: totalByCategory.name,
+    };
+    return currentExpense;
+  });
+
+  return data;
 };
