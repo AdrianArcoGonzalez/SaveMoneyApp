@@ -1,1 +1,7 @@
-export type ActionType = "login" | "toggleTheme";
+export type ActionType =
+  | "login"
+  | "toggleTheme"
+  | "openExpenseForm"
+  | "closeExpenseForm"
+  | "openIncomeForm"
+  | "closeIncomeForm";
