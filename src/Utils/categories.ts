@@ -39,7 +39,7 @@ export const expensesCategories = {
 
 export const incomesCategories = {
   income: {
-    name: "Income",
+    name: "Incomes",
     icon: incomeIcon,
   },
 };

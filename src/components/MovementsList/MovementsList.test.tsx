@@ -1,12 +1,20 @@
 import { render, screen } from "@testing-library/react";
+import { expensesCategoriesList } from "../../Utils/categories";
 import { mockUser } from "../../Utils/mockBack";
+import { getTotalExpensesByCategory } from "../../Utils/operationsUtils";
 import { Wrapper } from "../../Utils/Wrapper";
 import MovementsList from "./MovementsList";
 
 describe("Given a component MovementsList", () => {
   describe("When rendered as 'Recent movements'", () => {
     test("Then it should show a expenses list with too many movements as received", () => {
-      const movements = mockUser.expenses.length + mockUser.incomes.length;
+      const expenses = expensesCategoriesList()
+        .map((category) =>
+          getTotalExpensesByCategory(mockUser.expenses, category)
+        )
+        .filter((expense) => expense.quantity > 0).length;
+      const incomes = 1;
+      const movements = expenses + incomes;
 
       render(<MovementsList type="Recent movements" />, { wrapper: Wrapper });
 
