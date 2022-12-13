@@ -1,14 +1,13 @@
-import { createContext, Dispatch } from "react";
-import { Action } from "../types/actions";
+import { createContext } from "react";
+import { ContextUi, Ui } from "../../interfaces/interfaces";
 
-export type Theme = "light" | "dark";
-
-export interface Ui {
-  theme: Theme;
-  dispatchUi: Dispatch<Action>;
-}
-
-export const UiContext = createContext<Ui>({
+const initialUi: Ui = {
+  showExpenseForm: false,
+  showIncomeForm: false,
   theme: "light",
+};
+
+export const UiContext = createContext<ContextUi>({
+  ui: initialUi,
   dispatchUi: () => {},
 });
