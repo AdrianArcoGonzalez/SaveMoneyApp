@@ -16,6 +16,7 @@ interface MovemenstListProps {
 
 const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
   const { user } = useContext(UserContext);
+
   let movements: ExpenseIncome[] = [];
 
   switch (type) {
@@ -33,8 +34,8 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
       const incomes = [
         {
           category: user.incomes[0].category,
-          date: "2000-01-01",
-          name: "Income",
+          date: "",
+          name: "",
           quantity: getTotalIncomes(user.incomes),
         },
       ];
