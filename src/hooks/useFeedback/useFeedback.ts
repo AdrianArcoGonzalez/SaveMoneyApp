@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
 
 export const useFeedback = () => {
-  const { theme } = useContext(UiContext);
+  const {
+    ui: { theme },
+  } = useContext(UiContext);
 
   const feedbackConfig: ToastOptions = {
     position: "top-right",
