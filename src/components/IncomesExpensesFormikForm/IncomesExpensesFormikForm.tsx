@@ -4,6 +4,14 @@ import { IncomesExpensesFormikFormStyled } from "./IncomesExpensesFormikFormStyl
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { expensesCategoriesList } from "../../Utils/categories";
 import { ExpenseIncome } from "../../interfaces/interfaces";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { UiContext } from "../../store/uiContext/uiContext";
+import {
+  closeExpenseFormActionCreator,
+  closeIncomeFormActionCreator,
+} from "../../store/actions/uiActions/uiActions";
 
 interface IncomesExpensesFormikFormProps {
   type: "Income" | "Expense";
@@ -15,10 +23,24 @@ export const IncomesExpensesFormikForm = ({
   type,
 }: IncomesExpensesFormikFormProps): JSX.Element => {
   const { isValid, values } = useFormikContext<ExpenseIncome>();
+  const { dispatchUi } = useContext(UiContext);
+
+  const closeForm = () => {
+    if (type === "Expense") {
+      dispatchUi(closeExpenseFormActionCreator());
+    }
+
+    if (type === "Income") {
+      dispatchUi(closeIncomeFormActionCreator());
+    }
+  };
+
   return (
     <IncomesExpensesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
-        <h2>{`New ${type}`}</h2>
+        <h2 className="form-title">
+          {`New ${type}`} <FontAwesomeIcon icon={faXmark} onClick={closeForm} />{" "}
+        </h2>
         <div className="form-inputs-container">
           <CustomInputField
             class="form-input"
