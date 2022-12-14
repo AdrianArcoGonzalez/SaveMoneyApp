@@ -1,7 +1,5 @@
 import IncomesPageStyled from "./IncomesPageStyled";
 import MovementsList from "../../components/MovementsList/MovementsList";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
 import { openIncomeFormActionCreator } from "../../store/actions/uiActions/uiActions";

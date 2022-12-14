@@ -1,10 +1,9 @@
 import userReducer from "../store/reducers/userReducer/userReducer";
-import { useReducer } from "react";
+import { useReducer, useMemo } from "react";
 import { mockUser } from "./mockBack";
 import UserContext from "../store/UserContext/UserContext";
 import { uiReducer } from "../store/reducers/uiReducer/uiReducer";
 import { Ui } from "../interfaces/interfaces";
-import { UiContextProvider } from "../store/uiContext/UiContextProvider";
 import { UiContext } from "../store/uiContext/uiContext";
 
 interface WrapperProps {
@@ -20,6 +19,7 @@ const initialUi: Ui = {
 export const Wrapper = ({ children }: WrapperProps): JSX.Element => {
   const [user, dispatch] = useReducer(userReducer, mockUser);
   const [ui, dispatchUi] = useReducer(uiReducer, initialUi);
+  useMemo(() => ui, [ui]);
 
   return (
     <UiContext.Provider value={{ ui, dispatchUi }}>

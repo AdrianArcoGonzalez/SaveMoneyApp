@@ -39,7 +39,8 @@ export const IncomesExpensesFormikForm = ({
     <IncomesExpensesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
         <h2 className="form-title">
-          {`New ${type}`} <FontAwesomeIcon icon={faXmark} onClick={closeForm} />{" "}
+          {`New ${type}`}{" "}
+          <FontAwesomeIcon icon={faXmark} onClick={() => closeForm()} />{" "}
         </h2>
         <div className="form-inputs-container">
           <CustomInputField

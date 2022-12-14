@@ -34,7 +34,7 @@ const NavigationBar = (): JSX.Element => {
           <NavLink
             to={main}
             className={"navigation-bar__link"}
-            onClick={closeAllForms}
+            onClick={() => closeAllForms()}
           >
             <FontAwesomeIcon icon={faHouse} className="link-icon" />
             <span className="link-text">Home</span>
@@ -43,7 +43,7 @@ const NavigationBar = (): JSX.Element => {
           <NavLink
             to={newIncome}
             className={"navigation-bar__link"}
-            onClick={closeAllForms}
+            onClick={() => closeAllForms()}
           >
             <FontAwesomeIcon icon={faHandHoldingDollar} className="link-icon" />
             <span className="link-text">Incomes</span>
@@ -52,7 +52,7 @@ const NavigationBar = (): JSX.Element => {
           <NavLink
             to={newExpense}
             className={"navigation-bar__link"}
-            onClick={closeAllForms}
+            onClick={() => closeAllForms()}
           >
             <FontAwesomeIcon icon={faMoneyCheckDollar} className="link-icon" />
             <span className="link-text">Expenses</span>
@@ -61,7 +61,7 @@ const NavigationBar = (): JSX.Element => {
           <NavLink
             to={settings}
             className={"navigation-bar__link"}
-            onClick={closeAllForms}
+            onClick={() => closeAllForms()}
           >
             <FontAwesomeIcon icon={faGear} className="link-icon" />
             <span className="link-text">Settings</span>
