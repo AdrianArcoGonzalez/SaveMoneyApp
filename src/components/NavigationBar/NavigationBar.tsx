@@ -8,7 +8,7 @@ import {
   faMoneyCheckDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import NavigationBarStyled from "./NavigationBarStyled";
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
 import {
   closeExpenseFormActionCreator,
@@ -20,10 +20,10 @@ const NavigationBar = (): JSX.Element => {
   const { pathname } = useLocation();
   const { dispatchUi } = useContext(UiContext);
 
-  const closeAllForms = () => {
+  const closeAllForms = useCallback(() => {
     dispatchUi(closeExpenseFormActionCreator());
     dispatchUi(closeIncomeFormActionCreator());
-  };
+  }, [dispatchUi]);
 
   return (
     <>

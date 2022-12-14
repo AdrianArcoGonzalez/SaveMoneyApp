@@ -6,7 +6,7 @@ import { expensesCategoriesList } from "../../Utils/categories";
 import { ExpenseIncome } from "../../interfaces/interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
 import {
   closeExpenseFormActionCreator,
@@ -25,7 +25,7 @@ export const IncomesExpensesFormikForm = ({
   const { isValid, values } = useFormikContext<ExpenseIncome>();
   const { dispatchUi } = useContext(UiContext);
 
-  const closeForm = () => {
+  const closeForm = useCallback(() => {
     if (type === "Expense") {
       dispatchUi(closeExpenseFormActionCreator());
     }
@@ -33,7 +33,7 @@ export const IncomesExpensesFormikForm = ({
     if (type === "Income") {
       dispatchUi(closeIncomeFormActionCreator());
     }
-  };
+  }, [dispatchUi, type]);
 
   return (
     <IncomesExpensesFormikFormStyled>
