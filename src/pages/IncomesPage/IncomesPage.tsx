@@ -1,11 +1,37 @@
 import IncomesPageStyled from "./IncomesPageStyled";
 import MovementsList from "../../components/MovementsList/MovementsList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { UiContext } from "../../store/uiContext/uiContext";
+import { openIncomeFormActionCreator } from "../../store/actions/uiActions/uiActions";
+import { NewIncome } from "../../components/NewIncome/NewIncome";
 
 const IncomesPage = (): JSX.Element => {
+  const {
+    ui: { showIncomeForm },
+    dispatchUi,
+  } = useContext(UiContext);
+
   return (
     <IncomesPageStyled>
-      <h2 className="main-title">Incomes</h2>
-      <MovementsList type="Incomes" />
+      {showIncomeForm && <NewIncome />}
+      {!showIncomeForm && (
+        <>
+          <h2 className="main-title">
+            Incomes
+            <button
+              className="main-title__button"
+              onClick={() => {
+                dispatchUi(openIncomeFormActionCreator());
+              }}
+            >
+              +
+            </button>
+          </h2>
+          <MovementsList type="Incomes" />
+        </>
+      )}
     </IncomesPageStyled>
   );
 };
