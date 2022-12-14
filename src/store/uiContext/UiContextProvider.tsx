@@ -1,6 +1,7 @@
-import { useReducer } from "react";
+import { useReducer, useMemo } from "react";
+import { Ui } from "../../interfaces/interfaces";
 import { uiReducer } from "../reducers/uiReducer/uiReducer";
-import { Theme, UiContext } from "./uiContext";
+import { UiContext } from "./uiContext";
 
 export interface UiContextProviderProps {
   children: JSX.Element | JSX.Element[];
@@ -9,13 +10,21 @@ export interface UiContextProviderProps {
 export const UiContextProvider = ({
   children,
 }: UiContextProviderProps): JSX.Element => {
-  const initialTheme: Theme = "light";
+  const initialUi: Ui = {
+    theme: "light",
+    showExpenseForm: false,
+    showIncomeForm: false,
+  };
 
-  const [theme, dispatch] = useReducer(uiReducer, initialTheme);
-
+  const [ui, dispatch] = useReducer(uiReducer, initialUi);
+  const contextValues = useMemo(
+    () => ({
+      ui: ui,
+      dispatchUi: dispatch,
+    }),
+    [ui, dispatch]
+  );
   return (
-    <UiContext.Provider value={{ theme, dispatchUi: dispatch }}>
-      {children}
-    </UiContext.Provider>
+    <UiContext.Provider value={contextValues}>{children}</UiContext.Provider>
   );
 };

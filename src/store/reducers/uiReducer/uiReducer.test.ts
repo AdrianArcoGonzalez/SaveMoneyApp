@@ -1,19 +1,92 @@
-import { themeToggleActionCreator } from "../../actions/uiActions/uiActions";
-import { Theme } from "../../uiContext/uiContext";
+import { Theme, Ui } from "../../../interfaces/interfaces";
+import {
+  closeExpenseFormActionCreator,
+  closeIncomeFormActionCreator,
+  openExpenseFormActionCreator,
+  openIncomeFormActionCreator,
+  themeToggleActionCreator,
+} from "../../actions/uiActions/uiActions";
+
 import { uiReducer } from "./uiReducer";
 
+const previousUi: Ui = {
+  showExpenseForm: false,
+  showIncomeForm: false,
+  theme: "light",
+};
+
 describe("Given a uiReducer function", () => {
-  const previousTheme: Theme = "light";
   describe("When its instantiated with a toggleTheme action and the new theme as payload", () => {
     test("Then it should return the new theme", () => {
       const newTheme: Theme = "dark";
 
       const reducerReturn = uiReducer(
-        previousTheme,
+        previousUi,
         themeToggleActionCreator(newTheme)
       );
+      expect(reducerReturn).toStrictEqual({ ...previousUi, theme: newTheme });
+    });
+  });
 
-      expect(reducerReturn).toStrictEqual(newTheme);
+  describe("When its instantiated with a openExpenseForm action", () => {
+    test("Then it toggle the status", () => {
+      const newStatus = true;
+
+      const reducerReturn = uiReducer(
+        previousUi,
+        openExpenseFormActionCreator()
+      );
+      expect(reducerReturn).toStrictEqual({
+        ...previousUi,
+        showExpenseForm: newStatus,
+      });
+    });
+  });
+
+  describe("When its instantiated with a closeExpenseForm action", () => {
+    test("Then it toggle the status", () => {
+      previousUi.showExpenseForm = true;
+      const newStatus = false;
+
+      const reducerReturn = uiReducer(
+        previousUi,
+        closeExpenseFormActionCreator()
+      );
+      expect(reducerReturn).toStrictEqual({
+        ...previousUi,
+        showExpenseForm: newStatus,
+      });
+    });
+  });
+
+  describe("When its instantiated with a openIncomeForm action", () => {
+    test("Then it toggle the status", () => {
+      const newStatus = true;
+
+      const reducerReturn = uiReducer(
+        previousUi,
+        openIncomeFormActionCreator()
+      );
+      expect(reducerReturn).toStrictEqual({
+        ...previousUi,
+        showIncomeForm: newStatus,
+      });
+    });
+  });
+
+  describe("When its instantiated with a closeIncomeForm action", () => {
+    test("Then it toggle the status", () => {
+      previousUi.showIncomeForm = true;
+      const newStatus = false;
+
+      const reducerReturn = uiReducer(
+        previousUi,
+        closeIncomeFormActionCreator()
+      );
+      expect(reducerReturn).toStrictEqual({
+        ...previousUi,
+        showIncomeForm: newStatus,
+      });
     });
   });
 
@@ -21,9 +94,9 @@ describe("Given a uiReducer function", () => {
     test("Then it should return the previous state", () => {
       const UnknownAction = { type: "testFail", payload: "" };
 
-      const reducerReturn = uiReducer(previousTheme, UnknownAction);
+      const reducerReturn = uiReducer(previousUi, UnknownAction);
 
-      expect(reducerReturn).toStrictEqual(previousTheme);
+      expect(reducerReturn).toStrictEqual(previousUi);
     });
   });
 });

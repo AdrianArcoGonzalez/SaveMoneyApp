@@ -1,3 +1,6 @@
+import { Dispatch } from "react";
+import { Action } from "../store/types/actions";
+
 export interface ErrorsHandler {
   userName?: string;
   password?: string;
@@ -70,4 +73,15 @@ export interface Category {
 export interface GraphicData {
   name: string;
   value: number;
+}
+
+export type Theme = "light" | "dark";
+export interface Ui {
+  theme: Theme;
+  showExpenseForm: boolean;
+  showIncomeForm: boolean;
+}
+export interface ContextUi {
+  ui: Ui;
+  dispatchUi: Dispatch<Action>;
 }

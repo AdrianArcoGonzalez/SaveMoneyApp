@@ -1,5 +1,5 @@
+import { Theme } from "../../../interfaces/interfaces";
 import { ThemeAction } from "../../types/actions";
-import { Theme } from "../../uiContext/uiContext";
 import { themeToggleActionCreator } from "./uiActions";
 
 describe("Given a function themeToggleActionCreatorr", () => {

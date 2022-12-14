@@ -1,9 +1,6 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import {
-  expensesCategories,
-  expensesCategoriesList,
-} from "../../Utils/categories";
+import { expensesCategoriesList } from "../../Utils/categories";
 import { mockExpense } from "../../Utils/mockBack";
 import renderWithFormik from "../../Utils/test-utils";
 import { IncomesExpensesFormikForm } from "./IncomesExpensesFormikForm";
