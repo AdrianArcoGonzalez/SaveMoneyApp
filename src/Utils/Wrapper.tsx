@@ -19,10 +19,16 @@ const initialUi: Ui = {
 export const Wrapper = ({ children }: WrapperProps): JSX.Element => {
   const [user, dispatch] = useReducer(userReducer, mockUser);
   const [ui, dispatchUi] = useReducer(uiReducer, initialUi);
-  useMemo(() => ui, [ui]);
+  const uiContextValues = useMemo(
+    () => ({
+      ui: ui,
+      dispatchUi: dispatchUi,
+    }),
+    [ui, dispatchUi]
+  );
 
   return (
-    <UiContext.Provider value={{ ui, dispatchUi }}>
+    <UiContext.Provider value={uiContextValues}>
       <UserContext.Provider value={{ user, dispatch }}>
         {children}
       </UserContext.Provider>

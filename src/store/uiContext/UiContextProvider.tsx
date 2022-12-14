@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useMemo } from "react";
 import { Ui } from "../../interfaces/interfaces";
 import { uiReducer } from "../reducers/uiReducer/uiReducer";
 import { UiContext } from "./uiContext";
@@ -17,10 +17,14 @@ export const UiContextProvider = ({
   };
 
   const [ui, dispatch] = useReducer(uiReducer, initialUi);
-
+  const contextValues = useMemo(
+    () => ({
+      ui: ui,
+      dispatchUi: dispatch,
+    }),
+    [ui, dispatch]
+  );
   return (
-    <UiContext.Provider value={{ ui, dispatchUi: dispatch }}>
-      {children}
-    </UiContext.Provider>
+    <UiContext.Provider value={contextValues}>{children}</UiContext.Provider>
   );
 };
