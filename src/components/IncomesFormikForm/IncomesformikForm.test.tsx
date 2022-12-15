@@ -10,7 +10,7 @@ describe("Given a component IncomesFormikForm", () => {
       const savingsLabel = "Wich is your savings target?";
       const buttonText = "Send";
 
-      renderWithFormik(<IncomesFormikForm />);
+      renderWithFormik(<IncomesFormikForm type="initial" />);
 
       const incomesInput = screen.getByLabelText(incomesInputLabel);
       const radioGroup = screen.getByLabelText(radioLabel);

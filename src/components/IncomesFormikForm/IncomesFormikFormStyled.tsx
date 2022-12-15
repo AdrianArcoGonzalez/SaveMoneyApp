@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const IncomesFormikFormStyled = styled.div`
   display: flex;
   justify-content: center;
-
+  margin: 20px 0;
   .form-container {
     display: flex;
     flex-direction: column;

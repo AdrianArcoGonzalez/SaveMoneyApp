@@ -2,22 +2,34 @@ import { Field, Form, useFormikContext } from "formik";
 import UserContext from "../../store/UserContext/UserContext";
 import Button from "../Button/Button";
 import { useContext } from "react";
-
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { IncomesFormikFormStyled } from "./IncomesFormikFormStyled";
-import { mockUser } from "../../Utils/mockBack";
+import { type } from "os";
 
-export const IncomesFormikForm = () => {
+interface IncomesFormikFormProps {
+  type: "initial" | "update";
+  onClick?: () => void;
+}
+
+export const IncomesFormikForm = ({
+  type,
+  onClick,
+}: IncomesFormikFormProps) => {
   let { isValid } = useFormikContext();
   const { user } = useContext(UserContext);
 
   return (
     <IncomesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
-        <h3 className="form-container__title">{`Welcome ${user.userName}`}</h3>
-        <span className="form-container__intro-text">
-          Before starting we need to to ask some questions
-        </span>
+        {type === "initial" && (
+          <>
+            {" "}
+            <h3 className="form-container__title">{`Welcome ${user.userName}`}</h3>
+            <span className="form-container__intro-text">
+              Before starting we need to to ask some questions
+            </span>
+          </>
+        )}
 
         <CustomInputField
           label="Monthly incomes?"
@@ -54,7 +66,18 @@ export const IncomesFormikForm = () => {
           type="number"
         />
 
-        <Button text="Send" type="submit" disabled={!isValid} />
+        {type === "update" && (
+          <Button
+            text="Send"
+            type="submit"
+            disabled={!isValid}
+            onClick={onClick}
+          />
+        )}
+
+        {type === "initial" && (
+          <Button text="Send" type="submit" disabled={!isValid} />
+        )}
       </Form>
     </IncomesFormikFormStyled>
   );
