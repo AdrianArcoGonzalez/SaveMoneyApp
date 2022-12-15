@@ -15,6 +15,7 @@ import UserContext from "./store/UserContext/UserContext";
 import { useContext } from "react";
 import NoCredentialsRoutes from "./components/NoCredentialsRoutes/NoCredentialsRoutes";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import { Incomes } from "./components/Incomes/Incomes";
 
 const App = (): JSX.Element => {
   const { user } = useContext(UserContext);
@@ -65,7 +66,11 @@ const App = (): JSX.Element => {
             path="/main"
             element={
               <CredentialsRoutes isLogged={user.isLogged}>
-                <MainPage />
+                {user.monthlyIncomes === undefined ? (
+                  <Incomes type="initial" />
+                ) : (
+                  <MainPage />
+                )}
               </CredentialsRoutes>
             }
           />
