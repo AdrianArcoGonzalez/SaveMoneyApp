@@ -19,6 +19,7 @@ const userReducer = (
       incomes: (action as LoginAction).payload.incomes,
       moneySaved: (action as LoginAction).payload.moneySaved,
       savingTarget: (action as LoginAction).payload.savingTarget,
+      monthlyIncomes: (action as LoginAction).payload.monthlyIncomes,
     };
   } else {
     user = { ...previousUser };

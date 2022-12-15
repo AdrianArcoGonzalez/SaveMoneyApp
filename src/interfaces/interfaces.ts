@@ -31,6 +31,7 @@ export interface UserRegister extends User {
 
 export interface UserLoged extends User {
   token: string;
+  monthlyIncomes: number;
   isLogged?: boolean;
 }
 export interface UserFromDb extends UserLoged {
@@ -58,6 +59,7 @@ export interface PayloadToken {
   currency: "€" | "$";
   savingTarget: number;
   iat: number;
+  monthlyIncomes: number;
 }
 export interface IncomesValues {
   incomes: number;

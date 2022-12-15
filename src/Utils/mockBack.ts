@@ -10,6 +10,7 @@ export const initialUser: UserLoged = {
   moneySaved: 0,
   expenses: [],
   savingTarget: 0,
+  monthlyIncomes: 0,
 };
 
 export const mockUser: UserLoged = {
@@ -17,6 +18,7 @@ export const mockUser: UserLoged = {
   token: "123123",
   isLogged: true,
   currency: "$",
+  monthlyIncomes: 0,
   incomes: [
     {
       name: "work",
