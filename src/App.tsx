@@ -14,6 +14,7 @@ import CredentialsRoutes from "./components/CredentialsRoutes/Credentials";
 import UserContext from "./store/UserContext/UserContext";
 import { useContext } from "react";
 import NoCredentialsRoutes from "./components/NoCredentialsRoutes/NoCredentialsRoutes";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 
 const App = (): JSX.Element => {
   const { user } = useContext(UserContext);
@@ -81,6 +82,14 @@ const App = (): JSX.Element => {
             element={
               <CredentialsRoutes isLogged={user.isLogged}>
                 <ExpensesPage />
+              </CredentialsRoutes>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <CredentialsRoutes isLogged={user.isLogged}>
+                <SettingsPage />
               </CredentialsRoutes>
             }
           />
