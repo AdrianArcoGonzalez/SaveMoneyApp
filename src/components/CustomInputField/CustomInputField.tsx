@@ -7,6 +7,7 @@ interface CustomFormikFieldProps {
   placeholder: string;
   label: string;
   name: string;
+  value?: string | number;
 }
 
 const CustomInputField = ({
@@ -15,6 +16,7 @@ const CustomInputField = ({
   type,
   label,
   name,
+  value,
 }: CustomFormikFieldProps): JSX.Element => {
   return (
     <CustomInputFieldStyled>
@@ -27,6 +29,7 @@ const CustomInputField = ({
         id={name}
         name={name}
         placeholder={placeholder}
+        value={value}
       ></Field>
       <ErrorMessage name={name}>
         {(msg) => (
