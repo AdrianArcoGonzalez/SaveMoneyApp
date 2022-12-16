@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const NavigationBarStyled = styled.div`
-  padding: 10px 0;
+  position: sticky;
+
+  bottom: 0px;
+  padding: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  bottom: 10px;
   background-color: white;
   border-top: 1px solid black;
 
@@ -19,7 +21,7 @@ const NavigationBarStyled = styled.div`
   }
 
   .link-icon {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   .link-text {

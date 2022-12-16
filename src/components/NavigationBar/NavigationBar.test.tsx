@@ -4,13 +4,13 @@ import NavigationBar from "./NavigationBar";
 
 describe("Given a component NavigationBar", () => {
   describe("When rendered", () => {
-    test("Then it should show 4 link", () => {
-      const totalLinks = 4;
+    test("Then it should show 4 buttons", () => {
+      const totalButtons = 4;
       renderWithFormik(<NavigationBar />);
 
-      const links = screen.getAllByRole("link");
+      const buttons = screen.getAllByRole("button");
 
-      expect(links.length).toBe(totalLinks);
+      expect(buttons.length).toBe(totalButtons);
     });
   });
 });

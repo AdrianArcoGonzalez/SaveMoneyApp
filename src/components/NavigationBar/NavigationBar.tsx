@@ -1,12 +1,19 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { routes } from "../../Utils/routes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from "react-router-dom";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
+import SettingsIcon from "@mui/icons-material/Settings";
+import HomeIcon from "@mui/icons-material/Home";
+
 import {
-  faGear,
   faHandHoldingDollar,
-  faHouse,
   faMoneyCheckDollar,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+
 import NavigationBarStyled from "./NavigationBarStyled";
 import { useContext, useCallback } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
@@ -14,8 +21,11 @@ import {
   closeExpenseFormActionCreator,
   closeIncomeFormActionCreator,
 } from "../../store/actions/uiActions/uiActions";
+import { routes } from "../../Utils/routes";
 
 const NavigationBar = (): JSX.Element => {
+  const [value, setValue] = React.useState(0);
+  const navigator = useNavigate();
   const { main, newExpense, newIncome, settings } = routes;
   const { pathname } = useLocation();
   const { dispatchUi } = useContext(UiContext);
@@ -31,41 +41,53 @@ const NavigationBar = (): JSX.Element => {
       pathname !== "/login" &&
       pathname !== "/register" ? (
         <NavigationBarStyled>
-          <NavLink
-            to={main}
-            className={"navigation-bar__link"}
-            onClick={closeAllForms}
-          >
-            <FontAwesomeIcon icon={faHouse} className="link-icon" />
-            <span className="link-text">Home</span>
-          </NavLink>
-
-          <NavLink
-            to={newIncome}
-            className={"navigation-bar__link"}
-            onClick={closeAllForms}
-          >
-            <FontAwesomeIcon icon={faHandHoldingDollar} className="link-icon" />
-            <span className="link-text">Incomes</span>
-          </NavLink>
-
-          <NavLink
-            to={newExpense}
-            className={"navigation-bar__link"}
-            onClick={closeAllForms}
-          >
-            <FontAwesomeIcon icon={faMoneyCheckDollar} className="link-icon" />
-            <span className="link-text">Expenses</span>
-          </NavLink>
-
-          <NavLink
-            to={settings}
-            className={"navigation-bar__link"}
-            onClick={closeAllForms}
-          >
-            <FontAwesomeIcon icon={faGear} className="link-icon" />
-            <span className="link-text">Settings</span>
-          </NavLink>
+          <Box>
+            <BottomNavigation
+              showLabels
+              value={value}
+              onChange={(event, newValue) => {
+                event.preventDefault();
+                setValue(newValue);
+                navigator(newValue);
+                closeAllForms();
+              }}
+            >
+              <BottomNavigationAction
+                className={pathname === main ? "active" : " "}
+                value={main}
+                label="Home"
+                icon={<HomeIcon className="link-icon" />}
+              />
+              <BottomNavigationAction
+                className={pathname === newIncome ? "active" : " "}
+                value={newIncome}
+                label="Incomes"
+                icon={
+                  <FontAwesomeIcon
+                    icon={faHandHoldingDollar}
+                    className="link-icon"
+                  />
+                }
+              />
+              <BottomNavigationAction
+                className={pathname === newExpense ? "active" : " "}
+                value={newExpense}
+                label="Expenses"
+                icon={
+                  <FontAwesomeIcon
+                    icon={faMoneyCheckDollar}
+                    className="link-icon"
+                  />
+                }
+              />
+              <BottomNavigationAction
+                className={pathname === settings ? "active" : " "}
+                value={settings}
+                label="Settings"
+                icon={<SettingsIcon className="link-icon" />}
+              />
+            </BottomNavigation>
+          </Box>
         </NavigationBarStyled>
       ) : (
         <></>
