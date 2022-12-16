@@ -1,4 +1,3 @@
-import { UserLoged } from "../../../interfaces/interfaces";
 import { initialUser, mockUser } from "../../../Utils/mockBack";
 import { userLoginActionCreator } from "../../actions/userActions/userActions";
 import userReducer from "./userReducer";
