@@ -7,6 +7,11 @@ const MainPageStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
   .main-title {
     font-size: 1rem;
     align-self: flex-start;

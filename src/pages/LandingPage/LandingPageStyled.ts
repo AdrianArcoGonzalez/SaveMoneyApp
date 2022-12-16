@@ -8,6 +8,11 @@ const LandingPageStyled = styled.div`
   gap: 20px;
   padding: 10px;
   max-width: 320px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .image-central {
     object-fit: cover;

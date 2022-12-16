@@ -7,6 +7,11 @@ const IncomesPageStyled = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .main-title {
     width: 100%;
