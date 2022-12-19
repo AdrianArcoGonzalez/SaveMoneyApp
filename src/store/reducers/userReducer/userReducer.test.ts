@@ -1,11 +1,15 @@
-import { UserLoged } from "../../../interfaces/interfaces";
 import { initialUser, mockUser } from "../../../Utils/mockBack";
-import { userLoginActionCreator } from "../../actions/userActions/userActions";
+import {
+  newExpenseActionCreator,
+  newIncomeActionCreator,
+  userLoginActionCreator,
+} from "../../actions/userActions/userActions";
 import userReducer from "./userReducer";
 
 describe("Given a userReducers function", () => {
   const previousUser = initialUser;
   const newUser = mockUser;
+
   describe("When its instantiated with a login action and the correct payload", () => {
     test("Then it should return the new user", () => {
       const reducerReturn = userReducer(
@@ -14,6 +18,34 @@ describe("Given a userReducers function", () => {
       );
 
       expect(reducerReturn).toStrictEqual(newUser);
+    });
+  });
+
+  const expense = mockUser.expenses[1];
+  describe("When its instantiated with a newExpense action and the correct payload", () => {
+    test("Then it should return the new user with the new expense", () => {
+      const reducerReturn = userReducer(
+        previousUser,
+        newExpenseActionCreator(expense)
+      );
+
+      expect(
+        reducerReturn.expenses[reducerReturn.expenses.length - 1]
+      ).toStrictEqual(expense);
+    });
+  });
+
+  const income = mockUser.incomes[1];
+  describe("When its instantiated with a newIncome action and the correct payload", () => {
+    test("Then it should return the new user with the new  income", () => {
+      const reducerReturn = userReducer(
+        previousUser,
+        newIncomeActionCreator(income)
+      );
+
+      expect(
+        reducerReturn.incomes[reducerReturn.incomes.length - 1]
+      ).toStrictEqual(income);
     });
   });
 
