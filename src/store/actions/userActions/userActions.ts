@@ -1,5 +1,13 @@
-import { ExpenseIncome, UserLoged } from "../../../interfaces/interfaces";
-import { LoginAction, NewExpenseIncomeAction } from "../../types/actions";
+import {
+  ExpenseIncome,
+  IncomesValues,
+  UserLoged,
+} from "../../../interfaces/interfaces";
+import {
+  InitialDataAction,
+  LoginAction,
+  NewExpenseIncomeAction,
+} from "../../types/actions";
 
 export const userLoginActionCreator = (userData: UserLoged): LoginAction => ({
   type: "login",
@@ -18,4 +26,11 @@ export const newIncomeActionCreator = (
 ): NewExpenseIncomeAction => ({
   type: "newIncome",
   payload: income,
+});
+
+export const initialDataActionCreator = (
+  initialValues: IncomesValues
+): InitialDataAction => ({
+  type: "setInitialData",
+  payload: initialValues,
 });

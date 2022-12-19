@@ -1,4 +1,9 @@
-import { Theme, UserLoged, ExpenseIncome } from "../../interfaces/interfaces";
+import {
+  Theme,
+  UserLoged,
+  ExpenseIncome,
+  IncomesValues,
+} from "../../interfaces/interfaces";
 import { ActionType } from "./actionTypes";
 
 export interface Action {
@@ -25,4 +30,8 @@ export interface FormAction extends Action {}
 
 export interface NewExpenseIncomeAction extends Action {
   payload: ExpenseIncome;
+}
+
+export interface InitialDataAction extends Action {
+  payload: IncomesValues;
 }

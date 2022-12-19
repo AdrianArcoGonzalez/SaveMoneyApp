@@ -1,5 +1,6 @@
 export type ActionType =
   | "login"
+  | "setInitialData"
   | "newExpense"
   | "newIncome"
   | "toggleTheme"
