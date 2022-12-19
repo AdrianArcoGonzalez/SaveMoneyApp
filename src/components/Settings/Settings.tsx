@@ -36,10 +36,7 @@ const Settings = (): JSX.Element => {
       </div>
 
       {accountSettingForm && (
-        <Incomes
-          type="update"
-          onClick={() => setAccountSettingsForm(!accountSettingForm)}
-        />
+        <Incomes type="update" setOpen={setAccountSettingsForm} />
       )}
 
       <div className="theme-container">
