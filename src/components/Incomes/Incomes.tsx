@@ -1,16 +1,20 @@
 import { Formik } from "formik";
 import { useContext } from "react";
-import { IncomesValues, UserLoged } from "../../interfaces/interfaces";
+import { IncomesValues } from "../../interfaces/interfaces";
 import { validateIncomesForm } from "../../schemas/validateIncomesForm";
-import { userLoginActionCreator } from "../../store/actions/userActions/userActions";
+import { initialDataActionCreator } from "../../store/actions/userActions/userActions";
 import UserContext from "../../store/UserContext/UserContext";
 import { IncomesFormikForm } from "../IncomesFormikForm/IncomesFormikForm";
 
 interface IncomeProps {
   type: "initial" | "update";
-  onClick?: () => void;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export const Incomes = ({ type, onClick }: IncomeProps): JSX.Element => {
+export const Incomes = ({
+  type,
+
+  setOpen,
+}: IncomeProps): JSX.Element => {
   const { user, dispatch } = useContext(UserContext);
 
   const initialValues: IncomesValues =
@@ -18,7 +22,7 @@ export const Incomes = ({ type, onClick }: IncomeProps): JSX.Element => {
       ? {
           incomes: user.monthlyIncomes,
           saving: user.savingTarget,
-          currency: "$",
+          currency: user.currency,
         }
       : {
           incomes: 0,
@@ -27,14 +31,8 @@ export const Incomes = ({ type, onClick }: IncomeProps): JSX.Element => {
         };
 
   const handleSubmit = (values: IncomesValues) => {
-    const newUser: UserLoged = {
-      ...user,
-      currency: values.currency,
-      savingTarget: values.saving,
-      monthlyIncomes: values.incomes,
-    };
-
-    dispatch(userLoginActionCreator(newUser));
+    dispatch(initialDataActionCreator(values));
+    setOpen!(false);
   };
 
   return (
@@ -46,7 +44,7 @@ export const Incomes = ({ type, onClick }: IncomeProps): JSX.Element => {
       initialValues={initialValues}
       validationSchema={validateIncomesForm}
     >
-      <IncomesFormikForm type={type} onClick={onClick} />
+      <IncomesFormikForm type={type} />
     </Formik>
   );
 };
