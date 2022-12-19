@@ -41,7 +41,7 @@ const NavigationBar = (): JSX.Element => {
       pathname !== "/login" &&
       pathname !== "/register" ? (
         <NavigationBarStyled>
-          <Box>
+          <Box sx={{ width: "100%" }}>
             <BottomNavigation
               showLabels
               value={value}
