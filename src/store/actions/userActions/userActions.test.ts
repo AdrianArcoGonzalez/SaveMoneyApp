@@ -1,6 +1,12 @@
+import { IncomesValues } from "../../../interfaces/interfaces";
 import { mockUser } from "../../../Utils/mockBack";
-import { LoginAction, NewExpenseIncomeAction } from "../../types/actions";
 import {
+  InitialDataAction,
+  LoginAction,
+  NewExpenseIncomeAction,
+} from "../../types/actions";
+import {
+  initialDataActionCreator,
   newExpenseActionCreator,
   newIncomeActionCreator,
   userLoginActionCreator,
@@ -48,6 +54,26 @@ describe("Given a newIncomeActionCreator", () => {
       };
 
       const actionReturned = newIncomeActionCreator(income);
+
+      expect(actionReturned).toStrictEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a initialDataActionCreator", () => {
+  describe("When it's invoked with a IncomeValues", () => {
+    test("Then it should return an action with the correct type and payload", () => {
+      const initialValues: IncomesValues = {
+        currency: "$",
+        incomes: 1000,
+        saving: 2000,
+      };
+      const expectedAction: InitialDataAction = {
+        type: "setInitialData",
+        payload: initialValues,
+      };
+
+      const actionReturned = initialDataActionCreator(initialValues);
 
       expect(actionReturned).toStrictEqual(expectedAction);
     });
