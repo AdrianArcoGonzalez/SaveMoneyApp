@@ -1,4 +1,4 @@
-import { Field, Form, useFormikContext } from "formik";
+import { ErrorMessage, Field, Form, useFormikContext } from "formik";
 import Button from "../Button/Button";
 import { IncomesExpensesFormikFormStyled } from "./IncomesExpensesFormikFormStyled";
 import CustomInputField from "../CustomInputField/CustomInputField";
@@ -84,7 +84,6 @@ export const IncomesExpensesFormikForm = ({
                             name="category.name"
                             value={category.name}
                           />
-
                           <img
                             src={category.icon}
                             alt="logo"
@@ -100,6 +99,13 @@ export const IncomesExpensesFormikForm = ({
                     );
                   })}
                 </ul>
+                <ErrorMessage name={"category.name"}>
+                  {(msg) => (
+                    <span data-testid="errorMessage" className="errors">
+                      {msg}
+                    </span>
+                  )}
+                </ErrorMessage>
               </div>
             </>
           )}

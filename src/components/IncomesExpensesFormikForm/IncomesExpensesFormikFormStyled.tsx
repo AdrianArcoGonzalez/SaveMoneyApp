@@ -53,6 +53,13 @@ export const IncomesExpensesFormikFormStyled = styled.div`
     width: 100%;
   }
 
+  .errors {
+    text-align: center;
+    color: #ff3131;
+    font-weight: bold;
+    font-size: 0.7rem;
+  }
+
   .active {
     box-shadow: 5px 5px 10px #3070ad;
   }

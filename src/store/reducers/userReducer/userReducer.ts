@@ -1,6 +1,7 @@
 import { UserLoged } from "../../../interfaces/interfaces";
 import {
   Action,
+  InitialDataAction,
   LoginAction,
   NewExpenseIncomeAction,
   UnknownAction,
@@ -24,6 +25,7 @@ const userReducer = (
         incomes: (action as LoginAction).payload.incomes,
         moneySaved: (action as LoginAction).payload.moneySaved,
         savingTarget: (action as LoginAction).payload.savingTarget,
+        monthlyIncomes: (action as LoginAction).payload.monthlyIncomes,
       };
       break;
 
@@ -47,7 +49,14 @@ const userReducer = (
       };
 
       break;
-
+    case "setInitialData":
+      user = {
+        ...previousUser,
+        monthlyIncomes: (action as InitialDataAction).payload.incomes,
+        currency: (action as InitialDataAction).payload.currency,
+        savingTarget: (action as InitialDataAction).payload.saving,
+      };
+      break;
     default:
       user = { ...previousUser };
   }

@@ -27,7 +27,7 @@ jest.mock("react-toastify", () => ({
 describe("Given a useUser custom hook", () => {
   describe("When it's invoked with the login method", () => {
     test("Then it should call the toast error when it return an error", async () => {
-      const wrongData: UserLogin = { userName: "", password: "" };
+      const wrongData: UserLogin = { userName: "wrongName", password: "" };
 
       const {
         result: {

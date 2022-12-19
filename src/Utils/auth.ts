@@ -14,6 +14,7 @@ const decodeToken = (token: string) => {
     incomes: payloadToken.incomes,
     moneySaved: payloadToken.moneySaved,
     savingTarget: payloadToken.savingTarget,
+    monthlyIncomes: payloadToken.monthlyIncomes,
   };
   return user;
 };
