@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = ({
   text,
   onClick,
-  type = "button",
+  type,
   disabled,
 }: ButtonProps): JSX.Element => {
   return (
