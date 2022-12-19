@@ -30,7 +30,11 @@ const useUser = () => {
   const loginUser = async (userLogin: UserLogin) => {
     try {
       //const { data } = await axios.post(environments.login, userLogin);
+      //change lines 34 to 37 when the back is used
       const data = { user: mockUser };
+      if (userLogin.userName === "wrongName") {
+        throw new Error();
+      }
       const user = decodeToken(data.user.token);
       const loginUser = { ...user, isLogged: true };
 
