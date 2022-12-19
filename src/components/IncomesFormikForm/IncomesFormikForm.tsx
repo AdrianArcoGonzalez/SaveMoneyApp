@@ -4,8 +4,7 @@ import Button from "../Button/Button";
 import { useContext } from "react";
 import CustomInputField from "../CustomInputField/CustomInputField";
 import { IncomesFormikFormStyled } from "./IncomesFormikFormStyled";
-import { type } from "os";
-
+import { IncomesValues } from "../../interfaces/interfaces";
 interface IncomesFormikFormProps {
   type: "initial" | "update";
   onClick?: () => void;
@@ -15,7 +14,7 @@ export const IncomesFormikForm = ({
   type,
   onClick,
 }: IncomesFormikFormProps) => {
-  let { isValid } = useFormikContext();
+  let { isValid, values } = useFormikContext<IncomesValues>();
   const { user } = useContext(UserContext);
 
   return (
@@ -37,6 +36,7 @@ export const IncomesFormikForm = ({
           class="form-container__input"
           placeholder="1500"
           type="number"
+          value={values.incomes}
         />
 
         <div className="form-container__radio-group">
@@ -47,6 +47,7 @@ export const IncomesFormikForm = ({
             role="group"
             aria-labelledby="my-radio-group"
             className="radio-group__radio-buttons"
+            defaultValue={values.currency}
           >
             <label htmlFor="€">
               <Field id="€" type="radio" name="currency" value="€" />€
@@ -64,15 +65,11 @@ export const IncomesFormikForm = ({
           class="form-container__input"
           placeholder="25000"
           type="number"
+          value={values.saving}
         />
 
         {type === "update" && (
-          <Button
-            text="Send"
-            type="submit"
-            disabled={!isValid}
-            onClick={onClick}
-          />
+          <Button text="Send" type="submit" disabled={!isValid} />
         )}
 
         {type === "initial" && (
