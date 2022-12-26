@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
@@ -12,8 +12,6 @@ import {
   faMoneyCheckDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
-
 import NavigationBarStyled from "./NavigationBarStyled";
 import { useContext, useCallback } from "react";
 import { UiContext } from "../../store/uiContext/uiContext";
