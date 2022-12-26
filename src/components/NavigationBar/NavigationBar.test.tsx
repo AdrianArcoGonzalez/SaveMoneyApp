@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { routes } from "../../Utils/routes";
 import renderWithFormik from "../../Utils/test-utils";
@@ -14,10 +14,13 @@ jest.mock("react-router-dom", () => ({
 describe("Given a component NavigationBar", () => {
   describe("When rendered", () => {
     test("Then it should show 4 buttons", () => {
+      jest.clearAllMocks();
       const totalButtons = 4;
       renderWithFormik(<NavigationBar />);
 
       const buttons = screen.getAllByRole("button");
+
+      buttons.forEach((button) => userEvent.click(button));
 
       expect(buttons.length).toBe(totalButtons);
     });
@@ -35,6 +38,7 @@ describe("Given a component NavigationBar", () => {
         userEvent.click(buttonIncomes);
         userEvent.click(buttonExpenses);
         userEvent.click(buttonSettings);
+
         Object.values(routes).forEach((route) =>
           expect(mockNavigator).toHaveBeenCalledWith(route)
         );

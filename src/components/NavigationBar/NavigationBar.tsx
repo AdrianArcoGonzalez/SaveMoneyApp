@@ -42,6 +42,7 @@ const NavigationBar = (): JSX.Element => {
           <Box sx={{ width: "100%" }}>
             <BottomNavigation
               showLabels
+              value={value}
               onChange={(event, newValue) => {
                 event.preventDefault();
                 setValue(newValue);
