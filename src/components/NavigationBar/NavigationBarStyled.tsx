@@ -21,6 +21,7 @@ const NavigationBarStyled = styled.div`
   }
 
   .active {
+    transition: 1s;
     color: #3070ad;
   }
 `;
