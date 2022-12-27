@@ -83,7 +83,6 @@ export interface Ui {
   theme: Theme;
   showExpenseForm: boolean;
   showIncomeForm: boolean;
-  showConfirmDialog: boolean;
 }
 export interface ContextUi {
   ui: Ui;
