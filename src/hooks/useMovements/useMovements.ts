@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useContext } from "react";
 import { MovementsType } from "../../interfaces/interfaces";
 import {
@@ -18,10 +17,7 @@ export const useMovements = () => {
     }
 
     try {
-      //use the next lines when the api is used
-      /*await axios.delete(environments.delete, {
-        params: { type: type, name: movementName },
-      });*/
+      //use the next code when the api is used: await axios.delete(environments.delete, { params: { type: type, name: movementName },});
 
       if (type === "Incomes") {
         dispatch(deleteIcomeActionCreator(movementName));
