@@ -4,6 +4,7 @@ import {
   UserLoged,
 } from "../../../interfaces/interfaces";
 import {
+  DeleteMovementAction,
   InitialDataAction,
   LoginAction,
   NewExpenseIncomeAction,
@@ -33,4 +34,18 @@ export const initialDataActionCreator = (
 ): InitialDataAction => ({
   type: "setInitialData",
   payload: initialValues,
+});
+
+export const deleteExpenseActionCreator = (
+  name: string
+): DeleteMovementAction => ({
+  type: "deleteExpense",
+  payload: name,
+});
+
+export const deleteIcomeActionCreator = (
+  name: string
+): DeleteMovementAction => ({
+  type: "deleteIncome",
+  payload: name,
 });

@@ -1,6 +1,8 @@
-import { IncomesValues } from "../../../interfaces/interfaces";
+import { ExpenseIncome, IncomesValues } from "../../../interfaces/interfaces";
 import { initialUser, mockUser } from "../../../Utils/mockBack";
 import {
+  deleteExpenseActionCreator,
+  deleteIcomeActionCreator,
   initialDataActionCreator,
   newExpenseActionCreator,
   newIncomeActionCreator,
@@ -69,6 +71,48 @@ describe("Given a userReducers function", () => {
       expect(reducerReturn.monthlyIncomes).toBe(initialValues.incomes);
 
       expect(reducerReturn.savingTarget).toBe(initialValues.saving);
+    });
+  });
+
+  describe("When is instantiated with a deleteIncome action and the correct payload", () => {
+    test("Then it should return the new user without the deleted income", () => {
+      const mockIncome: ExpenseIncome = {
+        category: { icon: "", name: "" },
+        date: "",
+        name: "Test income",
+        quantity: 0,
+      };
+
+      initialUser.incomes.push(mockIncome);
+      const reducerReturn = userReducer(
+        previousUser,
+        deleteIcomeActionCreator(mockIncome.name)
+      );
+
+      expect(
+        reducerReturn.incomes.find((income) => income === mockIncome)
+      ).toBe(undefined);
+    });
+  });
+
+  describe("When is instantiated with a deleteExpense action and the correct payload", () => {
+    test("Then it should return the new user without the deleted expense", () => {
+      const mockExpense: ExpenseIncome = {
+        category: { icon: "", name: "" },
+        date: "",
+        name: "Test expense",
+        quantity: 0,
+      };
+
+      initialUser.incomes.push(mockExpense);
+      const reducerReturn = userReducer(
+        previousUser,
+        deleteExpenseActionCreator(mockExpense.name)
+      );
+
+      expect(
+        reducerReturn.expenses.find((expense) => expense === mockExpense)
+      ).toBe(undefined);
     });
   });
 

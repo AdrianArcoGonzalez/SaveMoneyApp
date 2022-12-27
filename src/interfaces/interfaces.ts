@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { Dispatch } from "react";
 import { Action } from "../store/types/actions";
 
@@ -82,8 +83,11 @@ export interface Ui {
   theme: Theme;
   showExpenseForm: boolean;
   showIncomeForm: boolean;
+  showConfirmDialog: boolean;
 }
 export interface ContextUi {
   ui: Ui;
   dispatchUi: Dispatch<Action>;
 }
+
+export type MovementsType = "Incomes" | "Expenses" | "Recent movements";
