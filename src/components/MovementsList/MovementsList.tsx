@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faTrash } from "@fortawesome/free-solid-svg-icons";
 import MovementsListStyled from "./MovementsListStyled";
-import { ExpenseIncome } from "../../interfaces/interfaces";
+import { ExpenseIncome, MovementsType } from "../../interfaces/interfaces";
 import { useContext } from "react";
 import UserContext from "../../store/UserContext/UserContext";
 import {
@@ -9,13 +9,15 @@ import {
   getTotalIncomes,
 } from "../../Utils/operationsUtils";
 import { expensesCategoriesList } from "../../Utils/categories";
+import { useMovements } from "../../hooks/useMovements/useMovements";
 
 interface MovemenstListProps {
-  type: "Incomes" | "Expenses" | "Recent movements";
+  type: MovementsType;
 }
 
 const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
   const { user } = useContext(UserContext);
+  const { deleteMovement } = useMovements();
 
   let movements: ExpenseIncome[] = [];
 
@@ -74,6 +76,16 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
         <span className="movement-quantity">{`${movement.quantity} ${user.currency}`}</span>
       ) : (
         <span className="movement-quantity movement-quantity--expense">{`- ${movement.quantity} ${user.currency}`}</span>
+      )}
+
+      {type !== "Recent movements" && (
+        <button onClick={() => deleteMovement(movement.name, type)}>
+          <FontAwesomeIcon
+            icon={faTrash}
+            height={25}
+            className="movement__icon"
+          />
+        </button>
       )}
 
       <FontAwesomeIcon
