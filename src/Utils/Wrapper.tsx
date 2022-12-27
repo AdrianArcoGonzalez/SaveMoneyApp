@@ -27,17 +27,21 @@ export const Wrapper = ({
 }: WrapperProps): JSX.Element => {
   const [user, dispatch] = useReducer(userReducer, mockUser);
   const [ui, dispatchUi] = useReducer(uiReducer, initialUi);
-
+  const uiValues: Ui = useMemo(() => (mockUi ? mockUi : ui), [mockUi, ui]);
+  const userValues: UserLoged = useMemo(
+    () => (testUser ? testUser : user),
+    [user, testUser]
+  );
   return (
     <UiContext.Provider
       value={{
-        ui: mockUi ? mockUi : ui,
+        ui: uiValues,
         dispatchUi: mockDispatch ? mockDispatch : dispatchUi,
       }}
     >
       <UserContext.Provider
         value={{
-          user: testUser ? testUser : user,
+          user: userValues,
           dispatch: mockDispatch ? mockDispatch : dispatch,
         }}
       >
