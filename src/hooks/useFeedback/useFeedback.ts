@@ -8,7 +8,7 @@ export const useFeedback = () => {
   } = useContext(UiContext);
 
   const feedbackConfig: ToastOptions = {
-    position: "top-right",
+    position: "top-center",
     theme: theme,
   };
 
