@@ -1,16 +1,19 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import renderWithFormik from "../../Utils/test-utils";
 import NavigationBar from "./NavigationBar";
 
 describe("Given a component NavigationBar", () => {
   describe("When rendered", () => {
-    test("Then it should show 4 link", () => {
-      const totalLinks = 4;
+    test("Then it should show 4 buttons", () => {
+      const totalButtons = 4;
       renderWithFormik(<NavigationBar />);
 
-      const links = screen.getAllByRole("link");
+      const buttons = screen.getAllByRole("button");
 
-      expect(links.length).toBe(totalLinks);
+      buttons.forEach((button) => userEvent.click(button));
+
+      expect(buttons.length).toBe(totalButtons);
     });
   });
 });

@@ -6,6 +6,7 @@ const LayoutStyled = styled.div`
   min-width: 320px;
   max-width: 450px;
   padding: 20px;
+  padding-bottom: 0;
   margin: auto;
   flex-direction: column;
   align-items: center;

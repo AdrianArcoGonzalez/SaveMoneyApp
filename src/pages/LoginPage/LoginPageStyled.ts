@@ -6,6 +6,11 @@ const LoginPageStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .secondary-title {
     display: flex;
