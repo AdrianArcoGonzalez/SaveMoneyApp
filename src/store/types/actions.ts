@@ -35,3 +35,7 @@ export interface NewExpenseIncomeAction extends Action {
 export interface InitialDataAction extends Action {
   payload: IncomesValues;
 }
+
+export interface DeleteMovementAction extends Action {
+  payload: string;
+}

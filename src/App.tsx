@@ -23,7 +23,6 @@ const App = (): JSX.Element => {
     <Layout
       children={[
         <ToastContainer
-          position="top-right"
           autoClose={2000}
           hideProgressBar={false}
           newestOnTop
@@ -32,7 +31,6 @@ const App = (): JSX.Element => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="light"
           transition={Zoom}
         />,
         <Header />,

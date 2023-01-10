@@ -7,4 +7,6 @@ export type ActionType =
   | "openExpenseForm"
   | "closeExpenseForm"
   | "openIncomeForm"
-  | "closeIncomeForm";
+  | "closeIncomeForm"
+  | "deleteExpense"
+  | "deleteIncome";

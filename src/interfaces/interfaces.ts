@@ -87,3 +87,5 @@ export interface ContextUi {
   ui: Ui;
   dispatchUi: Dispatch<Action>;
 }
+
+export type MovementsType = "Incomes" | "Expenses" | "Recent movements";

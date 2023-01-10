@@ -63,6 +63,14 @@ const MovementsListStyled = styled.div`
     align-self: center;
     flex: 0.5;
   }
+
+  button {
+    margin: 0;
+    font-size: 1, 2rem;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
 `;
 
 export default MovementsListStyled;

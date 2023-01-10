@@ -1,6 +1,7 @@
 import { UserLoged } from "../../../interfaces/interfaces";
 import {
   Action,
+  DeleteMovementAction,
   InitialDataAction,
   LoginAction,
   NewExpenseIncomeAction,
@@ -55,6 +56,24 @@ const userReducer = (
         monthlyIncomes: (action as InitialDataAction).payload.incomes,
         currency: (action as InitialDataAction).payload.currency,
         savingTarget: (action as InitialDataAction).payload.saving,
+      };
+      break;
+
+    case "deleteExpense":
+      user = {
+        ...previousUser,
+        expenses: previousUser.expenses.filter(
+          (expense) => expense.name !== (action as DeleteMovementAction).payload
+        ),
+      };
+      break;
+
+    case "deleteIncome":
+      user = {
+        ...previousUser,
+        incomes: previousUser.incomes.filter(
+          (income) => income.name !== (action as DeleteMovementAction).payload
+        ),
       };
       break;
     default:
