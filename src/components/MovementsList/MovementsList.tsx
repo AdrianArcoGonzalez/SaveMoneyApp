@@ -33,18 +33,26 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
       break;
 
     case "Recent movements":
-      const incomes = [
-        {
-          category: user.incomes[0].category,
-          date: "",
-          name: "",
-          quantity: getTotalIncomes(user.incomes),
-        },
-      ];
+      const incomes =
+        user.incomes.length < 1
+          ? user.incomes
+          : [
+              {
+                category: user.incomes[0].category,
+                date: "",
+                name: "",
+                quantity: getTotalIncomes(user.incomes),
+              },
+            ];
 
-      const expenses = expensesCategoriesList()
-        .map((category) => getTotalExpensesByCategory(user.expenses, category))
-        .filter((expense) => expense.quantity > 0);
+      const expenses =
+        user.expenses.length < 1
+          ? user.expenses
+          : expensesCategoriesList()
+              .map((category) =>
+                getTotalExpensesByCategory(user.expenses, category)
+              )
+              .filter((expense) => expense.quantity > 0);
 
       movements = [...incomes, ...expenses];
       break;
