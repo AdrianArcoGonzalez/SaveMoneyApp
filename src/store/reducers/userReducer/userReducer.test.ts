@@ -6,6 +6,7 @@ import {
   initialDataActionCreator,
   newExpenseActionCreator,
   newIncomeActionCreator,
+  updateIncomeActionCreator,
   userLoginActionCreator,
 } from "../../actions/userActions/userActions";
 import userReducer from "./userReducer";
@@ -81,6 +82,7 @@ describe("Given a userReducers function", () => {
         date: "",
         name: "Test income",
         quantity: 0,
+        id: "mock id",
       };
 
       initialUser.incomes.push(mockIncome);
@@ -102,6 +104,7 @@ describe("Given a userReducers function", () => {
         date: "",
         name: "Test expense",
         quantity: 0,
+        id: "mock id",
       };
 
       initialUser.incomes.push(mockExpense);
@@ -113,6 +116,58 @@ describe("Given a userReducers function", () => {
       expect(
         reducerReturn.expenses.find((expense) => expense === mockExpense)
       ).toBe(undefined);
+    });
+  });
+
+  describe("When is instantiated with a update income action and the correct payload", () => {
+    test("Then it should return the new user with the updated income", () => {
+      const mockincome: ExpenseIncome = {
+        category: { icon: "", name: "" },
+        date: "",
+        name: "Test income",
+        quantity: 0,
+        id: "mock id",
+      };
+
+      initialUser.incomes.push(mockincome);
+
+      const updatedIncome = {
+        ...mockincome,
+        name: "Updated income",
+      };
+
+      const reducerReturn = userReducer(
+        previousUser,
+        updateIncomeActionCreator(updatedIncome)
+      );
+
+      expect(reducerReturn.incomes.pop()!).toEqual(updatedIncome);
+    });
+  });
+
+  describe("When is instantiated with a update expense action and the correct payload", () => {
+    test("Then it should return the new user with the updated expense", () => {
+      const mockExpense: ExpenseIncome = {
+        category: { icon: "", name: "" },
+        date: "",
+        name: "Test expense",
+        quantity: 0,
+        id: "mock id",
+      };
+
+      initialUser.incomes.push(mockExpense);
+
+      const updatedExpense = {
+        ...mockExpense,
+        name: "Updated expense",
+      };
+
+      const reducerReturn = userReducer(
+        previousUser,
+        updateIncomeActionCreator(updatedExpense)
+      );
+
+      expect(reducerReturn.incomes.pop()!).toEqual(updatedExpense);
     });
   });
 
