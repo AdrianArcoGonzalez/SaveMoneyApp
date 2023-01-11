@@ -39,3 +39,7 @@ export interface InitialDataAction extends Action {
 export interface DeleteMovementAction extends Action {
   payload: string;
 }
+
+export interface UpdateMovementAction extends Action {
+  payload: ExpenseIncome;
+}

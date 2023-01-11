@@ -8,6 +8,7 @@ import {
   InitialDataAction,
   LoginAction,
   NewExpenseIncomeAction,
+  UpdateMovementAction,
 } from "../../types/actions";
 
 export const userLoginActionCreator = (userData: UserLoged): LoginAction => ({
@@ -48,4 +49,18 @@ export const deleteIcomeActionCreator = (
 ): DeleteMovementAction => ({
   type: "deleteIncome",
   payload: name,
+});
+
+export const updateExpenseActionCreator = (
+  updatedExpense: ExpenseIncome
+): UpdateMovementAction => ({
+  type: "updateExpense",
+  payload: updatedExpense,
+});
+
+export const updateIncomeActionCreator = (
+  updatedIncome: ExpenseIncome
+): UpdateMovementAction => ({
+  type: "updateIncome",
+  payload: updatedIncome,
 });
