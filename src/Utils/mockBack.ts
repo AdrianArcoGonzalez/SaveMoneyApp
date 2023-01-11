@@ -22,18 +22,20 @@ export const mockUser: UserLoged = {
   monthlyIncomes: 0,
   incomes: [
     {
-      name: "work",
+      name: "Work",
       quantity: 2000,
       date: "2022-11-01",
+      id: "01",
       category: {
         name: incomesCategories.income.name,
         icon: incomesCategories.income.icon,
       },
     },
     {
-      name: "work extra payment",
+      name: "Work extra payment",
       quantity: 1000,
       date: "2022-11-15",
+      id: "02",
       category: {
         name: incomesCategories.income.name,
         icon: incomesCategories.income.icon,
@@ -43,6 +45,7 @@ export const mockUser: UserLoged = {
       name: "Sell clothes",
       quantity: 180,
       date: "2022-11-23",
+      id: "03",
       category: {
         name: incomesCategories.income.name,
         icon: incomesCategories.income.icon,
@@ -52,6 +55,7 @@ export const mockUser: UserLoged = {
       name: "Won in casino",
       quantity: 2000,
       date: "2022-11-28",
+      id: "04",
       category: {
         name: incomesCategories.income.name,
         icon: incomesCategories.income.icon,
@@ -64,6 +68,7 @@ export const mockUser: UserLoged = {
       name: "Zara",
       quantity: 300,
       date: "2022-11-27",
+      id: "05",
       category: {
         name: expensesCategories.clothes.name,
         icon: expensesCategories.clothes.icon,
@@ -73,6 +78,7 @@ export const mockUser: UserLoged = {
       name: "Mercadona",
       quantity: 200,
       date: "2022-11-24",
+      id: "06",
       category: {
         name: expensesCategories.food.name,
         icon: expensesCategories.food.icon,
@@ -82,6 +88,7 @@ export const mockUser: UserLoged = {
       name: "Rent",
       quantity: 500,
       date: "2022-11-28",
+      id: "07",
       category: {
         name: expensesCategories.home.name,
         icon: expensesCategories.home.icon,
@@ -91,6 +98,7 @@ export const mockUser: UserLoged = {
       name: "Gasoline",
       quantity: 230,
       date: "24-11-2022",
+      id: "08",
       category: {
         name: expensesCategories.transport.name,
         icon: expensesCategories.transport.icon,
@@ -100,6 +108,7 @@ export const mockUser: UserLoged = {
       name: "Dinner",
       quantity: 60,
       date: "25-11-2022",
+      id: "09",
       category: {
         name: expensesCategories.food.name,
         icon: expensesCategories.food.icon,
@@ -117,4 +126,5 @@ export const mockExpense: ExpenseIncome = {
   date: "",
   name: "",
   quantity: 0,
+  id: "",
 };

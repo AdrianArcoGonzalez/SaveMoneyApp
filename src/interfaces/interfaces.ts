@@ -48,6 +48,7 @@ export interface ExpenseIncome {
   quantity: number;
   date: string;
   category: Category;
+  id: string;
 }
 
 export interface PayloadToken {
