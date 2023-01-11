@@ -39,6 +39,7 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
           date: "",
           name: "",
           quantity: getTotalIncomes(user.incomes),
+          id: "totalincomes",
         },
       ];
 
