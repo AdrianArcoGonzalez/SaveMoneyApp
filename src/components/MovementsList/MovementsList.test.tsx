@@ -7,20 +7,42 @@ import MovementsList from "./MovementsList";
 
 describe("Given a component MovementsList", () => {
   describe("When rendered as 'Recent movements'", () => {
-    test("Then it should show a expenses list with too many movements as received", () => {
-      const expenses = expensesCategoriesList()
-        .map((category) =>
-          getTotalExpensesByCategory(mockUser.expenses, category)
-        )
-        .filter((expense) => expense.quantity > 0).length;
-      const incomes = 1;
-      const movements = expenses + incomes;
+    describe("and the user incomes and expenses are more than 1", () => {
+      test("Then it should show a expenses list with too many movements as received", () => {
+        const expenses = expensesCategoriesList()
+          .map((category) =>
+            getTotalExpensesByCategory(mockUser.expenses, category)
+          )
+          .filter((expense) => expense.quantity > 0).length;
+        const incomes = 1;
+        const movements = expenses + incomes;
 
-      render(<MovementsList type="Recent movements" />, { wrapper: Wrapper });
+        render(<MovementsList type="Recent movements" />, { wrapper: Wrapper });
 
-      const movementsList = screen.getAllByRole("listitem");
+        const movementsList = screen.getAllByRole("listitem");
 
-      expect(movementsList.length).toBe(movements);
+        expect(movementsList.length).toBe(movements);
+      });
+    });
+
+    describe("And the user does´nt have any movement", () => {
+      test("Then it shouldn´t show a list of elements", () => {
+        const testUser = {
+          ...mockUser,
+          expenses: [],
+          incomes: [],
+        };
+
+        render(
+          <Wrapper testUser={testUser}>
+            <MovementsList type="Recent movements" />
+          </Wrapper>
+        );
+
+        const movements = screen.queryByRole("listitem");
+
+        expect(movements).toBeNull();
+      });
     });
   });
 
