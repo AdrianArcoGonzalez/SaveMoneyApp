@@ -1,17 +1,30 @@
 import styled from "styled-components";
 
 const MovementsListStyled = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 
+  .form {
+    width: 100%;
+    background-color: white;
+  }
+
   img {
     flex: 0.5;
   }
 
-  .movements-list__title {
-    font-size: 1rem;
+  .movements-list {
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 15px;
+    }
   }
 
   .list-container {
@@ -64,7 +77,7 @@ const MovementsListStyled = styled.div`
     flex: 0.5;
   }
 
-  button {
+  .clear {
     margin: 0;
     font-size: 1, 2rem;
     background-color: transparent;
