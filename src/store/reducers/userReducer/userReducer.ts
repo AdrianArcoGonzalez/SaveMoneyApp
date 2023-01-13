@@ -74,7 +74,7 @@ const userReducer = (
     case "updateExpense":
       user = {
         ...previousUser,
-        incomes: previousUser.expenses.map((expense) =>
+        expenses: previousUser.expenses.map((expense) =>
           expense.id === (action as UpdateMovementAction).payload.id
             ? (action as UpdateMovementAction).payload
             : expense

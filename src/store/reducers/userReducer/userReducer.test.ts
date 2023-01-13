@@ -6,6 +6,7 @@ import {
   initialDataActionCreator,
   newExpenseActionCreator,
   newIncomeActionCreator,
+  updateExpenseActionCreator,
   updateIncomeActionCreator,
   userLoginActionCreator,
 } from "../../actions/userActions/userActions";
@@ -107,7 +108,7 @@ describe("Given a userReducers function", () => {
         id: "mock id",
       };
 
-      initialUser.incomes.push(mockExpense);
+      initialUser.expenses.push(mockExpense);
       const reducerReturn = userReducer(
         previousUser,
         deleteExpenseActionCreator(mockExpense.name)
@@ -155,7 +156,7 @@ describe("Given a userReducers function", () => {
         id: "mock id",
       };
 
-      initialUser.incomes.push(mockExpense);
+      initialUser.expenses.push(mockExpense);
 
       const updatedExpense = {
         ...mockExpense,
@@ -164,10 +165,10 @@ describe("Given a userReducers function", () => {
 
       const reducerReturn = userReducer(
         previousUser,
-        updateIncomeActionCreator(updatedExpense)
+        updateExpenseActionCreator(updatedExpense)
       );
 
-      expect(reducerReturn.incomes.pop()!).toEqual(updatedExpense);
+      expect(reducerReturn.expenses.pop()!).toEqual(updatedExpense);
     });
   });
 
