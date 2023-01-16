@@ -18,12 +18,9 @@ export const UpdateIncome = ({ movement, closeForm }: UpdateIncomeProps) => {
       onSubmit={async (values) => {
         if (values === movement) {
           closeForm!("");
-          return;
-        }
-        if (await updateMovement(values, "Income")) {
+        } else if (await updateMovement(values, "Income")) {
           closeForm!("");
         }
-        return;
       }}
       validationSchema={validateIncomesExpensesForm}
     >

@@ -12,14 +12,6 @@ jest.mock("react-toastify", () => ({
   },
 }));
 
-// const mockUseMovements = {
-//   updateMovement: jest.fn().mockResolvedValue(true),
-// };
-// jest.mock(
-//   "../../hooks/useMovements/useMovements",
-//   () => () => mockUseMovements
-// );
-
 describe("Given a component UpdateIncome", () => {
   describe("When rendered", () => {
     test("Then it should show a comoponent with the heading 'New Income'", () => {
