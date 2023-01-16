@@ -87,29 +87,23 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
 
         {type !== "Recent movements" && (
           <div className="movements-list__buttons">
-            <button
-              className="clear"
+            <FontAwesomeIcon
+              data-testid="trashButton"
               onClick={() => deleteMovement(movement.name, type)}
-            >
-              <FontAwesomeIcon
-                icon={faTrash}
-                height={25}
-                className="movement__icon"
-              />
-            </button>
+              icon={faTrash}
+              height={25}
+              className="movement__icon"
+            />
 
-            <button
-              className="clear"
+            <FontAwesomeIcon
+              data-testid="updateButton"
               onClick={() => {
                 setUpdateForm(movement.id);
               }}
-            >
-              <FontAwesomeIcon
-                icon={faPencil}
-                height={25}
-                className="movement__icon"
-              />
-            </button>
+              icon={faPencil}
+              height={25}
+              className="movement__icon"
+            />
           </div>
         )}
 
@@ -121,9 +115,10 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
       </li>
       {movement.id === updateForm && (
         <>
-          {type === "Expenses" ? (
+          {type === "Expenses" && (
             <UpdateExpense movement={movement} closeForm={setUpdateForm} />
-          ) : (
+          )}
+          {type === "Incomes" && (
             <UpdateIncome movement={movement} closeForm={setUpdateForm} />
           )}
         </>
