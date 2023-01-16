@@ -120,11 +120,11 @@ export const mockUser: UserLoged = {
 
 export const mockExpense: ExpenseIncome = {
   category: {
-    name: "",
-    icon: "",
+    name: "any",
+    icon: "any",
   },
-  date: "",
-  name: "",
-  quantity: 0,
-  id: "",
+  date: "2022-12-31",
+  name: "mock movement",
+  quantity: 10,
+  id: "a1b2",
 };
