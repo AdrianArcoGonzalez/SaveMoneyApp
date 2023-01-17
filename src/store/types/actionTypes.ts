@@ -9,4 +9,6 @@ export type ActionType =
   | "openIncomeForm"
   | "closeIncomeForm"
   | "deleteExpense"
-  | "deleteIncome";
+  | "deleteIncome"
+  | "updateExpense"
+  | "updateIncome";

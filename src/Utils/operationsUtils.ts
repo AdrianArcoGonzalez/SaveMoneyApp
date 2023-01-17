@@ -52,6 +52,7 @@ export const getTotalExpensesByCategory = (
     quantity: getTotalExpenses(expensesByCategory),
     date: "",
     name: category.name,
+    id: "total expenses",
   };
 
   return totalExpenses;

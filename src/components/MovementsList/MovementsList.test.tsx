@@ -1,9 +1,26 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { toast } from "react-toastify";
+import { openIncomeFormActionCreator } from "../../store/actions/uiActions/uiActions";
+import {
+  deleteExpenseActionCreator,
+  deleteIcomeActionCreator,
+  updateIncomeActionCreator,
+} from "../../store/actions/userActions/userActions";
 import { expensesCategoriesList } from "../../Utils/categories";
 import { mockUser } from "../../Utils/mockBack";
 import { getTotalExpensesByCategory } from "../../Utils/operationsUtils";
 import { Wrapper } from "../../Utils/Wrapper";
 import MovementsList from "./MovementsList";
+
+const mockDispatch = jest.fn();
+
+jest.mock("react-toastify", () => ({
+  toast: {
+    error: jest.fn(),
+    success: jest.fn(),
+  },
+}));
 
 describe("Given a component MovementsList", () => {
   describe("When rendered as 'Recent movements'", () => {
@@ -56,6 +73,49 @@ describe("Given a component MovementsList", () => {
 
       expect(movementsList.length).toBe(expenses);
     });
+
+    describe("And the user click on trash icon", () => {
+      test("Then it should call the dispatch  with the action deleteExpense and the expense name as payload, and call the function success from toast", async () => {
+        const expense = mockUser.expenses[0];
+        const action = deleteExpenseActionCreator(expense.name);
+
+        render(
+          <Wrapper mockDispatch={mockDispatch}>
+            <MovementsList type="Expenses" />
+          </Wrapper>
+        );
+
+        const trashButtons = await screen.findAllByTestId("trashButton");
+
+        await userEvent.click(trashButtons[0]);
+
+        await waitFor(() => {
+          expect(mockDispatch).toHaveBeenCalledWith(action);
+        });
+
+        await waitFor(() => expect(toast.success).toHaveBeenCalled());
+      });
+    });
+
+    describe("And the user click on update  button", () => {
+      test("Then it should open a form with a heading 'Update'", async () => {
+        const formTitle = "Update";
+
+        render(<MovementsList type="Expenses" />, { wrapper: Wrapper });
+
+        const updateButtons = await screen.findAllByTestId("updateButton");
+
+        await userEvent.click(updateButtons[0]);
+
+        const expectedHeading = await screen.findByRole("heading", {
+          name: formTitle,
+        });
+
+        await waitFor(() => {
+          expect(expectedHeading).toBeInTheDocument();
+        });
+      });
+    });
   });
 
   describe("When rendered as 'Incomes'", () => {
@@ -67,6 +127,49 @@ describe("Given a component MovementsList", () => {
       const movementsList = screen.getAllByRole("listitem");
 
       expect(movementsList.length).toBe(incomes);
+    });
+
+    describe("And the user click on trash icon", () => {
+      test("Then it should call the dispatch  with the action deleteIncome and the income name as payload, and call the function success from toast", async () => {
+        const income = mockUser.incomes[0];
+        const action = deleteIcomeActionCreator(income.name);
+
+        render(
+          <Wrapper mockDispatch={mockDispatch}>
+            <MovementsList type="Incomes" />
+          </Wrapper>
+        );
+
+        const trashButtons = await screen.findAllByTestId("trashButton");
+
+        await userEvent.click(trashButtons[0]);
+
+        await waitFor(() => {
+          expect(mockDispatch).toHaveBeenCalledWith(action);
+        });
+
+        await waitFor(() => expect(toast.success).toHaveBeenCalled());
+      });
+    });
+
+    describe("And the user click on update  button", () => {
+      test("Then it should open a form with a heading 'Update'", async () => {
+        const formTitle = "Update";
+
+        render(<MovementsList type="Incomes" />, { wrapper: Wrapper });
+
+        const updateButtons = await screen.findAllByTestId("updateButton");
+
+        await userEvent.click(updateButtons[0]);
+
+        const expectedHeading = await screen.findByRole("heading", {
+          name: formTitle,
+        });
+
+        await waitFor(() => {
+          expect(expectedHeading).toBeInTheDocument();
+        });
+      });
     });
   });
 });

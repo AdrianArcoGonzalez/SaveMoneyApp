@@ -1,11 +1,17 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {
+  closeExpenseFormActionCreator,
+  closeIncomeFormActionCreator,
+} from "../../store/actions/uiActions/uiActions";
 import { expensesCategoriesList } from "../../Utils/categories";
 import { mockExpense } from "../../Utils/mockBack";
 import renderWithFormik from "../../Utils/test-utils";
+import { Wrapper } from "../../Utils/Wrapper";
 import { IncomesExpensesFormikForm } from "./IncomesExpensesFormikForm";
 
 describe("Given a component IncomesExpensesFormikForm", () => {
+  const mockDispatch = jest.fn();
   describe("When rendered as Income", () => {
     test("Then it should show a formular with a headinx with the text 'New Income' 3 inputs and a button", () => {
       const headingText = "New Income";
@@ -28,10 +34,25 @@ describe("Given a component IncomesExpensesFormikForm", () => {
       expect(incomeDateInput).toBeInTheDocument();
       expect(button).toBeInTheDocument();
     });
+
+    describe("When the user click on the close button", () => {
+      test("Then it should call the dispatch with the action closeIncomeForm", async () => {
+        const action = closeIncomeFormActionCreator();
+        renderWithFormik(
+          <Wrapper mockDispatch={mockDispatch}>
+            <IncomesExpensesFormikForm type="Income" />
+          </Wrapper>
+        );
+
+        const closeButton = await screen.findByTestId("closebutton");
+        await userEvent.click(closeButton);
+        await waitFor(() => expect(mockDispatch).toHaveBeenCalledWith(action));
+      });
+    });
   });
 
   describe("When rendered as Expense", () => {
-    test("Then it should show a formular with a headinx with the text 'New Expense' 3 inputs, a radio group and a button", async () => {
+    test("Then it should show a formular with a heading with the text 'New Expense' 3 inputs, a radio group and a button", async () => {
       const headingText = "New Expense";
       const incomeNameLabel = "Expense name";
       const incomeValuelabel = "Expense value";
@@ -59,6 +80,22 @@ describe("Given a component IncomesExpensesFormikForm", () => {
       expect(incomeDateInput).toBeInTheDocument();
       expect(radioButtons.length).toBe(expectedRadioButtons.length);
       expect(button).toBeInTheDocument();
+    });
+  });
+
+  describe("When the user click on the close button", () => {
+    test("Then it should call the dispatch with the action closeExpenseForm", async () => {
+      const action = closeExpenseFormActionCreator();
+      renderWithFormik(
+        <Wrapper mockDispatch={mockDispatch}>
+          <IncomesExpensesFormikForm type="Expense" />
+        </Wrapper>,
+        mockExpense
+      );
+
+      const closeButton = await screen.findByTestId("closebutton");
+      await userEvent.click(closeButton);
+      await waitFor(() => expect(mockDispatch).toHaveBeenCalledWith(action));
     });
   });
 });

@@ -1,4 +1,4 @@
-import { User, UserLogin } from "../../interfaces/interfaces";
+import { User, UserLoged, UserLogin } from "../../interfaces/interfaces";
 import decodeToken from "../../Utils/auth";
 import environments from "../../Utils/environments/environments";
 import axios from "axios";
@@ -36,10 +36,16 @@ const useUser = () => {
         throw new Error();
       }
       const user = decodeToken(data.user.token);
-      const loginUser = { ...user, isLogged: true };
+
+      const loginUser: UserLoged = {
+        ...user,
+        expenses: mockUser.expenses,
+        incomes: mockUser.incomes,
+        isLogged: true,
+      };
 
       successFeedback(`Welcome ${user.userName}`);
-      dispatch(userLoginActionCreator(loginUser));
+      dispatch(userLoginActionCreator(mockUser));
       localStorage.setItem("token", loginUser.token);
       navigate("/main");
 

@@ -15,12 +15,14 @@ import {
 
 interface IncomesExpensesFormikFormProps {
   type: "Income" | "Expense";
+  update?: boolean;
 }
 
 const imageWidth = 37;
 
 export const IncomesExpensesFormikForm = ({
   type,
+  update,
 }: IncomesExpensesFormikFormProps): JSX.Element => {
   const { isValid, values } = useFormikContext<ExpenseIncome>();
   const { dispatchUi } = useContext(UiContext);
@@ -38,9 +40,18 @@ export const IncomesExpensesFormikForm = ({
   return (
     <IncomesExpensesFormikFormStyled>
       <Form noValidate autoComplete="off" className="form-container">
-        <h2 className="form-title">
-          {`New ${type}`} <FontAwesomeIcon icon={faXmark} onClick={closeForm} />{" "}
-        </h2>
+        {update ? (
+          <h2 className="form-title">Update</h2>
+        ) : (
+          <h2 className="form-title">
+            {`New ${type}`}
+            <FontAwesomeIcon
+              data-testid="closebutton"
+              icon={faXmark}
+              onClick={closeForm}
+            />
+          </h2>
+        )}
         <div className="form-inputs-container">
           <CustomInputField
             class="form-input"
@@ -48,6 +59,7 @@ export const IncomesExpensesFormikForm = ({
             name="name"
             placeholder="Food"
             type="text"
+            value={values.name}
           />
 
           <CustomInputField
@@ -56,6 +68,7 @@ export const IncomesExpensesFormikForm = ({
             name="quantity"
             placeholder="25"
             type="number"
+            value={values.quantity}
           />
 
           <CustomInputField
@@ -64,20 +77,26 @@ export const IncomesExpensesFormikForm = ({
             name="date"
             placeholder="15/01/2022"
             type="date"
+            value={values.date}
           />
 
           {type === "Expense" && (
             <>
               <div className="radio-container">
                 <label htmlFor="radio-group">Choose an expense icon</label>
-                <ul role="group" id="radio-group" className="form-radio-group">
+                <ul
+                  role="group"
+                  id="radio-group"
+                  className="form-radio-group"
+                  defaultValue={values.category.name}
+                >
                   {expensesCategoriesList().map((category) => {
                     if (values.category.name === category.name) {
                       values.category.icon = category.icon;
                     }
 
                     return (
-                      <li>
+                      <li key={category.name}>
                         <label>
                           <Field
                             type="radio"
@@ -111,7 +130,7 @@ export const IncomesExpensesFormikForm = ({
           )}
         </div>
         <Button
-          text={`Add new ${type.toLowerCase()}`}
+          text={update ? "Update" : `Add new ${type.toLowerCase()}`}
           type="submit"
           disabled={!isValid}
         />

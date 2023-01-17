@@ -6,6 +6,7 @@ import {
   LoginAction,
   NewExpenseIncomeAction,
   UnknownAction,
+  UpdateMovementAction,
 } from "../../types/actions";
 
 const userReducer = (
@@ -56,6 +57,28 @@ const userReducer = (
         monthlyIncomes: (action as InitialDataAction).payload.incomes,
         currency: (action as InitialDataAction).payload.currency,
         savingTarget: (action as InitialDataAction).payload.saving,
+      };
+      break;
+
+    case "updateIncome":
+      user = {
+        ...previousUser,
+        incomes: previousUser.incomes.map((income) =>
+          income.id === (action as UpdateMovementAction).payload.id
+            ? (action as UpdateMovementAction).payload
+            : income
+        ),
+      };
+      break;
+
+    case "updateExpense":
+      user = {
+        ...previousUser,
+        expenses: previousUser.expenses.map((expense) =>
+          expense.id === (action as UpdateMovementAction).payload.id
+            ? (action as UpdateMovementAction).payload
+            : expense
+        ),
       };
       break;
 

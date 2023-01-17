@@ -4,11 +4,14 @@ import {
   InitialDataAction,
   LoginAction,
   NewExpenseIncomeAction,
+  UpdateMovementAction,
 } from "../../types/actions";
 import {
   initialDataActionCreator,
   newExpenseActionCreator,
   newIncomeActionCreator,
+  updateExpenseActionCreator,
+  updateIncomeActionCreator,
   userLoginActionCreator,
 } from "./userActions";
 
@@ -74,6 +77,38 @@ describe("Given a initialDataActionCreator", () => {
       };
 
       const actionReturned = initialDataActionCreator(initialValues);
+
+      expect(actionReturned).toStrictEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a updateExpenseActionCreator", () => {
+  describe("When it's invoked with a expense name", () => {
+    test("Then it should return an action with the correct type and payload", () => {
+      const initialValues = mockUser.expenses[0];
+      const expectedAction: UpdateMovementAction = {
+        type: "updateExpense",
+        payload: initialValues,
+      };
+
+      const actionReturned = updateExpenseActionCreator(initialValues);
+
+      expect(actionReturned).toStrictEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a updateIncomeActionCreator", () => {
+  describe("When it's invoked with a income name", () => {
+    test("Then it should return an action with the correct type and payload", () => {
+      const initialValues = mockUser.incomes[0];
+      const expectedAction: UpdateMovementAction = {
+        type: "updateIncome",
+        payload: initialValues,
+      };
+
+      const actionReturned = updateIncomeActionCreator(initialValues);
 
       expect(actionReturned).toStrictEqual(expectedAction);
     });
