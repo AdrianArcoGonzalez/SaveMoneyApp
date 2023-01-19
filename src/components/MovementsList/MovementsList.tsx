@@ -36,7 +36,6 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
       break;
 
     case "Recent movements":
-
       const incomes =
         user.incomes.length < 1
           ? user.incomes
@@ -46,6 +45,7 @@ const MovementsList = ({ type }: MovemenstListProps): JSX.Element => {
                 date: "",
                 name: "",
                 quantity: getTotalIncomes(user.incomes),
+                id: "",
               },
             ];
 
