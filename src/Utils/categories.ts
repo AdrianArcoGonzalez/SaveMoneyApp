@@ -1,4 +1,4 @@
-import { Category } from "../interfaces/interfaces";
+import { Category, ExpenseIncome } from "../interfaces/interfaces";
 
 export const incomeIcon =
   "https://cdn-icons-png.flaticon.com/512/1295/1295801.png";
@@ -51,4 +51,16 @@ export const expensesCategoriesList = () => {
   });
 
   return categoriesList;
+};
+
+export const setCategoryIcon = (expenses: ExpenseIncome[]) => {
+  type Categories = keyof typeof expensesCategories;
+  return expenses.map((expense, index) => {
+    expense.category.icon =
+      expensesCategories[
+        expense.category.name.toLocaleLowerCase() as Categories
+      ].icon;
+
+    return expense;
+  });
 };
