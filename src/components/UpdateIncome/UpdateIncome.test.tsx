@@ -1,7 +1,7 @@
 import { screen, waitFor } from "@testing-library/react";
 import renderWithFormik from "../../Utils/test-utils";
 import { UpdateIncome } from "./UpdateIncome";
-import { mockExpense } from "../../Utils/mockBack";
+import { mockMovement } from "../../Utils/mockBack";
 import userEvent from "@testing-library/user-event";
 import { toast } from "react-toastify";
 
@@ -14,14 +14,14 @@ jest.mock("react-toastify", () => ({
 
 describe("Given a component UpdateIncome", () => {
   describe("When rendered", () => {
-    const movement = mockExpense;
+    const movement = mockMovement;
     const buttonName = "Update";
     const mockClose = jest.fn();
 
     test("Then it should show a comoponent withe the heading 'New Income'", () => {
       const headingText = "Update";
 
-      renderWithFormik(<UpdateIncome movement={mockExpense} />);
+      renderWithFormik(<UpdateIncome movement={mockMovement} />);
 
       const heading = screen.getByRole("heading", { name: headingText });
 

@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/react";
 import renderWithFormik from "../../Utils/test-utils";
-import { mockExpense } from "../../Utils/mockBack";
+import { mockMovement } from "../../Utils/mockBack";
 import { UpdateExpense } from "./UpdateExpense";
 import userEvent from "@testing-library/user-event";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ describe("Given a component UpdateIncome", () => {
     test("Then it should show a comoponent with the heading 'New Income'", () => {
       const headingText = "Update";
 
-      renderWithFormik(<UpdateExpense movement={mockExpense} />);
+      renderWithFormik(<UpdateExpense movement={mockMovement} />);
 
       const heading = screen.getByRole("heading", { name: headingText });
 
@@ -26,7 +26,7 @@ describe("Given a component UpdateIncome", () => {
 
     describe("And the user click on 'Update' without changes", () => {
       test("Then it should call the function close form", async () => {
-        const movement = mockExpense;
+        const movement = mockMovement;
         const buttonName = "Update";
         const mockClose = jest.fn();
 
@@ -44,7 +44,7 @@ describe("Given a component UpdateIncome", () => {
 
     describe("And the user click on 'Update' with changes", () => {
       test("Then it should call the function close form and succes from toast", async () => {
-        const movement = mockExpense;
+        const movement = mockMovement;
         const buttonName = "Update";
         const mockClose = jest.fn();
 

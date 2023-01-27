@@ -1,0 +1,18 @@
+https://json-generator.com/#
+
+[
+  '{{repeat(5, 1000)}}',
+  {
+    id: '{{objectId()}}',
+    category:{name:'Income',
+              icon:function(tags){return this.name;}
+              },
+    name:'{{"Ramdom Income"}}'+ ' ' +'{{index(2000)}}' ,
+    quantity:'{{integer(200, 2500)}}',
+    date:'{{date(new Date(2022, 0, 1), new Date(), "YYYY-MM-dd")}}'
+    
+  }
+]
+
+
+

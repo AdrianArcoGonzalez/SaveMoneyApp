@@ -1,5 +1,8 @@
 import { ExpenseIncome, UserLoged } from "../interfaces/interfaces";
-import { expensesCategories, incomesCategories } from "./categories";
+import { incomesCategories, setCategoryIcon } from "./categories";
+
+import ramdomExpenses from "./randomExpenses.json";
+import ramdomIncomes from "./randomIncomes.json";
 
 export const initialUser: UserLoged = {
   userName: "",
@@ -13,6 +16,13 @@ export const initialUser: UserLoged = {
   monthlyIncomes: 0,
 };
 
+const incomes: ExpenseIncome[] = ramdomIncomes.map((income, index) => {
+  income = { ...income, category: incomesCategories.income };
+  return income;
+});
+
+const expenses: ExpenseIncome[] = setCategoryIcon(ramdomExpenses);
+
 export const mockUser: UserLoged = {
   userName: "test",
   token:
@@ -20,105 +30,13 @@ export const mockUser: UserLoged = {
   isLogged: true,
   currency: "€",
   monthlyIncomes: 2500,
-  incomes: [
-    {
-      name: "Work",
-      quantity: 2000,
-      date: "2022-11-01",
-      id: "01",
-      category: {
-        name: incomesCategories.income.name,
-        icon: incomesCategories.income.icon,
-      },
-    },
-    {
-      name: "Work extra payment",
-      quantity: 1000,
-      date: "2022-11-15",
-      id: "02",
-      category: {
-        name: incomesCategories.income.name,
-        icon: incomesCategories.income.icon,
-      },
-    },
-    {
-      name: "Sell clothes",
-      quantity: 180,
-      date: "2022-11-23",
-      id: "03",
-      category: {
-        name: incomesCategories.income.name,
-        icon: incomesCategories.income.icon,
-      },
-    },
-    {
-      name: "Won in casino",
-      quantity: 2000,
-      date: "2022-11-28",
-      id: "04",
-      category: {
-        name: incomesCategories.income.name,
-        icon: incomesCategories.income.icon,
-      },
-    },
-  ],
+  incomes,
   moneySaved: 8000,
-  expenses: [
-    {
-      name: "Zara",
-      quantity: 300,
-      date: "2022-11-27",
-      id: "05",
-      category: {
-        name: expensesCategories.clothes.name,
-        icon: expensesCategories.clothes.icon,
-      },
-    },
-    {
-      name: "Mercadona",
-      quantity: 200,
-      date: "2022-11-24",
-      id: "06",
-      category: {
-        name: expensesCategories.food.name,
-        icon: expensesCategories.food.icon,
-      },
-    },
-    {
-      name: "Rent",
-      quantity: 500,
-      date: "2022-11-28",
-      id: "07",
-      category: {
-        name: expensesCategories.home.name,
-        icon: expensesCategories.home.icon,
-      },
-    },
-    {
-      name: "Gasoline",
-      quantity: 230,
-      date: "2022-11-24",
-      id: "08",
-      category: {
-        name: expensesCategories.transport.name,
-        icon: expensesCategories.transport.icon,
-      },
-    },
-    {
-      name: "Dinner",
-      quantity: 60,
-      date: "2022-10-25",
-      id: "09",
-      category: {
-        name: expensesCategories.food.name,
-        icon: expensesCategories.food.icon,
-      },
-    },
-  ],
+  expenses,
   savingTarget: 1000,
 };
 
-export const mockExpense: ExpenseIncome = {
+export const mockMovement: ExpenseIncome = {
   category: {
     name: "any",
     icon: "any",
@@ -127,4 +45,12 @@ export const mockExpense: ExpenseIncome = {
   name: "mock movement",
   quantity: 10,
   id: "a1b2",
+};
+
+export const initialMovement: ExpenseIncome = {
+  category: { icon: "", name: "" },
+  date: "",
+  id: "",
+  name: "",
+  quantity: 0,
 };

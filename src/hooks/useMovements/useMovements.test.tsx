@@ -9,7 +9,7 @@ import {
   updateExpenseActionCreator,
   updateIncomeActionCreator,
 } from "../../store/actions/userActions/userActions";
-import { mockExpense } from "../../Utils/mockBack";
+import { mockMovement } from "../../Utils/mockBack";
 import { Wrapper } from "../../Utils/Wrapper";
 import { useMovements } from "./useMovements";
 
@@ -32,8 +32,8 @@ const mockWrapper = ({ children }: mockWrapperProps) => {
 describe("Given a function createMovement", () => {
   describe("When is instatiated with a movement and the type 'Income'", () => {
     test("Then it should call the dispatch with an action newIncome and the feedback success", () => {
-      const movement = mockExpense;
-      const action = newIncomeActionCreator(mockExpense);
+      const movement = mockMovement;
+      const action = newIncomeActionCreator(mockMovement);
 
       const {
         result: {
@@ -50,8 +50,8 @@ describe("Given a function createMovement", () => {
 
   describe("When is instatiated with a movement and the type 'Expense'", () => {
     test("Then it should call the dispatch with an action newExpense and the feedback success", () => {
-      const movement = mockExpense;
-      const action = newExpenseActionCreator(mockExpense);
+      const movement = mockMovement;
+      const action = newExpenseActionCreator(mockMovement);
 
       const {
         result: {
@@ -70,8 +70,8 @@ describe("Given a function createMovement", () => {
 describe("Given a function updateMovement", () => {
   describe("When is instatiated with a movement and the type 'Income'", () => {
     test("Then it should call the dispatch with an action updateIncome and the feedback success", () => {
-      const movement = mockExpense;
-      const action = updateIncomeActionCreator(mockExpense);
+      const movement = mockMovement;
+      const action = updateIncomeActionCreator(mockMovement);
 
       const {
         result: {
@@ -88,8 +88,8 @@ describe("Given a function updateMovement", () => {
 
   describe("When is instatiated with a movement and the type 'Expense'", () => {
     test("Then it should call the dispatch with an action updateExpense and the feedback success", () => {
-      const movement = mockExpense;
-      const action = updateExpenseActionCreator(mockExpense);
+      const movement = mockMovement;
+      const action = updateExpenseActionCreator(mockMovement);
 
       const {
         result: {

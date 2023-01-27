@@ -5,7 +5,7 @@ import {
   closeIncomeFormActionCreator,
 } from "../../store/actions/uiActions/uiActions";
 import { expensesCategoriesList } from "../../Utils/categories";
-import { mockExpense } from "../../Utils/mockBack";
+import { mockMovement } from "../../Utils/mockBack";
 import renderWithFormik from "../../Utils/test-utils";
 import { Wrapper } from "../../Utils/Wrapper";
 import { IncomesExpensesFormikForm } from "./IncomesExpensesFormikForm";
@@ -62,7 +62,7 @@ describe("Given a component IncomesExpensesFormikForm", () => {
 
       renderWithFormik(
         <IncomesExpensesFormikForm type="Expense" />,
-        mockExpense
+        mockMovement
       );
 
       const heading = screen.getByRole("heading", { name: headingText });
@@ -90,7 +90,7 @@ describe("Given a component IncomesExpensesFormikForm", () => {
         <Wrapper mockDispatch={mockDispatch}>
           <IncomesExpensesFormikForm type="Expense" />
         </Wrapper>,
-        mockExpense
+        mockMovement
       );
 
       const closeButton = await screen.findByTestId("closebutton");

@@ -37,6 +37,8 @@ const useUser = () => {
       }
       const user = decodeToken(data.user.token);
 
+      //const expenses = await axios.get(environments.update+user.id)
+
       const loginUser: UserLoged = {
         ...user,
         expenses: mockUser.expenses,
@@ -46,6 +48,7 @@ const useUser = () => {
 
       successFeedback(`Welcome ${user.userName}`);
       dispatch(userLoginActionCreator(mockUser));
+
       localStorage.setItem("token", loginUser.token);
       navigate("/main");
 
